@@ -1,0 +1,2 @@
+class Imagem < Recurso
+end

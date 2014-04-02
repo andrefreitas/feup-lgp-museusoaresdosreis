@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  linguagem: 1
+  filename: MyString
+  conteudo: MyString
+  duracao: 1
+  evento_id: 
+  type: 
+
+two:
+  linguagem: 1
+  filename: MyString
+  conteudo: MyString
+  duracao: 1
+  evento_id: 
+  type: 
