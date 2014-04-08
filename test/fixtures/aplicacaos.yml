@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  linguagem: 1
-  tamanho_texto: 1
-
-two:
-  linguagem: 1
-  tamanho_texto: 1

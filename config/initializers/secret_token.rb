@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Museusoaresreis::Application.config.secret_key_base = '2367c7eeed53c030a3a026f6bceb0d89b38894edd5acdb0e9fbe3b482dbef46ad7a23a8c6283b9c424bbe7e9081e120d834b971412ad6d19c6a2574126d16ac4'
+Museusoaresreis::Application.config.secret_key_base = 'b6d2abb4715bfbdef888d4f2f88b3a40169b9e899b6d23a3b1206657695905508d08e2d58ae8337de0f5271078918ab6f4926ae53d89a127ef0d00b02fc40b18'
