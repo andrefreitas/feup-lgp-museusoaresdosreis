@@ -47,3 +47,16 @@ GRANT ALL PRIVILEGES ON museusoaresreis_development.* To 'museusoaresreis'@'loca
 GRANT ALL PRIVILEGES ON museusoaresreis_test.* To 'museusoaresreis'@'localhost';
 GRANT ALL PRIVILEGES ON museusoaresreis_production.* To 'museusoaresreis'@'localhost';
 ```
+
+### 3. Comandos de Rails
+Iniciar o servidor
+
+```
+rails server
+```
+
+Criar um modelo
+
+```
+rails g model Administrator name:string email:string password:string
+```
