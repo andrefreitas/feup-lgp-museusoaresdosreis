@@ -43,7 +43,7 @@ sudo apt-get install git
 ```
 mysql -u root -p
 CREATE USER 'museusoaresreis'@'localhost' IDENTIFIED BY 'fhhjg54dfghu6';
-GRANT ALL PRIVILEGES ON museusoaresreis_development.* To 'museusoaresreis'@'hostname'
-GRANT ALL PRIVILEGES ON museusoaresreis_test.* To 'museusoaresreis'@'hostname'
-GRANT ALL PRIVILEGES ON museusoaresreis_production.* To 'museusoaresreis'@'hostname'
+GRANT ALL PRIVILEGES ON museusoaresreis_development.* To 'museusoaresreis'@'localhost';
+GRANT ALL PRIVILEGES ON museusoaresreis_test.* To 'museusoaresreis'@'localhost';
+GRANT ALL PRIVILEGES ON museusoaresreis_production.* To 'museusoaresreis'@'localhost';
 ```
