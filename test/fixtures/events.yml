@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-04-09 06:52:01
+  local: MyString
+  published: false
+  created_date: 2014-04-09 06:52:01
+  visible: false
+  chronology_id: 
+  map_id: 
+
+two:
+  date: 2014-04-09 06:52:01
+  local: MyString
+  published: false
+  created_date: 2014-04-09 06:52:01
+  visible: false
+  chronology_id: 
+  map_id: 
