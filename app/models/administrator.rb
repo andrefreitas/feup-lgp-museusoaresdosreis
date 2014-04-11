@@ -2,7 +2,7 @@ require 'digest/sha1'
 class Administrator < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 40 }
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }, uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 5 }
   
   before_save :encrypt_password
   
