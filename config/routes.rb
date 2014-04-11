@@ -1,5 +1,6 @@
 Museusoaresreis::Application.routes.draw do
   get "admin/login"
+  get "login_is_valid" => "admin#login_is_valid" 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
