@@ -1,0 +1,64 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$wineColor: #6E2528;
+$wineColorLighter: #A77C70;
+
+
+body {
+	margin: 0;
+	padding: 0;
+	background: $wineColorLighter;
+}
+
+
+#header {
+	background: $wineColor;
+	padding: 20px;
+
+	min-height: 40px;
+	width: 100%;
+}
+
+#content {
+	margin-top: 60px;
+	overflow: auto;
+}
+
+#loginForm{
+	background: white;
+	width: 200px;
+	padding: 50px;
+	min-height: 200px;
+	margin: 0 auto;
+	text-align: center;
+
+	h2 {
+		color: #6E2528;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	$elementsSize : 200px;
+
+
+	input {
+		padding: 7px 20px 7px 20px;
+		width: $elementsSize;
+		box-sizing: border-box;
+		border: solid 2px $wineColor;
+		border-radius: 4px;
+		margin-bottom: 10px;
+
+	}
+
+    button {
+		padding: 7px 20px 7px 20px;
+		width: $elementsSize;
+		background: $wineColor;
+		color: white;
+		border: 0;
+		cursor: pointer;
+	}
+}
