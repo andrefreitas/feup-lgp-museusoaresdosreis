@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  language: 1
+  text_size: 1
+
+two:
+  language: 1
+  text_size: 1

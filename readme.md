@@ -57,4 +57,19 @@ rails generate model Administrator name:string email:string password:string
 rake db:migrate
 ```
 #### 3.1 Como atualizar a base de dados MySQL quando o modelo é alterado?
-```rake db:reset```
+```
+rake db:reset
+```
+
+### 3. Comandos de Rails
+Iniciar o servidor
+
+```
+rails server
+```
+
+Criar um modelo
+
+```
+rails g model Administrator name:string email:string password:string
+```
