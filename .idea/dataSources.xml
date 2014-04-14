@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4286973629">
+    <data-source source="LOCAL" name="Rails museusoaresreis: development" uuid="b5a2f07b-f1e2-4209-a513-f2729e3ad518">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/museusoaresreis_development</jdbc-url>
+      <user-name>museusoaresreis</user-name>
+      <user-password>dfccdfc2dfc2dfc0dfcddf9fdf9edfcedfccdfcddfc2dfdfdf9c</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails museusoaresreis: test" uuid="dd5244d6-20b0-45f8-860f-afe59bc117af">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/museusoaresreis_test</jdbc-url>
+      <user-name>museusoaresreis</user-name>
+      <user-password>dfccdfc2dfc2dfc0dfcddf9fdf9edfcedfccdfcddfc2dfdfdf9c</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails museusoaresreis: production" uuid="207e7236-2dc8-4653-a34a-3f7742350f92">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/museusoaresreis_production</jdbc-url>
+      <user-name>museusoaresreis</user-name>
+      <user-password>dfccdfc2dfc2dfc0dfcddf9fdf9edfcedfccdfcddfc2dfdfdf9c</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

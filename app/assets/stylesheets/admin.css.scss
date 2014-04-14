@@ -1,9 +1,6 @@
-// Place all the styles related to the admin controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 $wineColor: #6E2528;
 $wineColorLighter: #A77C70;
+$yellowColor: #F8F2D2;
 
 
 body {
@@ -61,4 +58,9 @@ body {
 		border: 0;
 		cursor: pointer;
 	}
+
+    #forgotPasswordButton{
+      background: $yellowColor;
+      color: black;
+    }
 }
