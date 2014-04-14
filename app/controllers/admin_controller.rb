@@ -15,4 +15,10 @@ class AdminController < ApplicationController
     session[:administrator] = nil
     redirect_to(login_path, :notice => "Terminada a sessão de administrador")
   end
+
+  def login_is_valid
+  	email = params[:email]
+  	password = params[:password]
+
+  end
 end

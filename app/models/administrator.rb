@@ -3,7 +3,7 @@ class Administrator < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 40 }
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 5 }
-  
+  attr_accessible :name, :email, :password
   before_save :encrypt_password
   
   def encrypt_password
@@ -15,6 +15,7 @@ class Administrator < ActiveRecord::Base
   
   def self.authenticate(email,password)
     pwd = Digest::SHA1.hexdigest(password.to_s)
-    Administrator.find_by_email_and_password(email,pwd)
+    user = Administrator.find_by_email_and_password(email,pwd)
+    return user 
   end
 end
