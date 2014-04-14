@@ -19,6 +19,9 @@ class AdminController < ApplicationController
   def login_is_valid
   	email = params[:email]
   	password = params[:password]
-
+    @administrator = Administrator.authenticate(email, password)
+    respond_to do |format|
+      format .json {render json:@administrator}
+    end
   end
 end
