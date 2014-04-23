@@ -1,11 +1,11 @@
 <% content_for :title, "Sistema Administrativo" %>
-<div id="header">
-    <%=image_tag("logo-white.png", alt: "Museu Nacional Soares dos Reis")%>
-</div>
+<%= render "header" %>
 <div id="content">
   <div id="loginForm">
     <%=image_tag("logo.png", alt: "Museu Nacional Soares dos Reis")%>
     <h2>Sistema administrativo</h2>
+    <div class="notifications">
+    </div>
     <input type="text" name="email" id="emailVal" placeholder="e-mail"/> <br/>
     <input type="password" name="password" id="passwordVal" placeholder="password"/> <br/>
     <button id="loginButton">Entrar</button> <br/>

@@ -1,0 +1,11 @@
+<div id="header">
+  <%=image_tag("logo-white.png", alt: "Museu Nacional Soares dos Reis")%>
+  <% if @administrator %>
+  <div class="logout">
+    <button id="logoutButton">Sair da Administração</button>
+  </div>
+  <div class="administrator">
+    <%= @administrator.name %>
+  </div>
+  <% end %>
+</div>

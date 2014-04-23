@@ -7,6 +7,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: $wineColorLighter;
+    font-size: 13px;
 }
 
 
@@ -61,4 +62,66 @@ body {
       background: $yellowColor;
       color: black;
     }
+}
+
+.notifications {
+  margin-bottom: 5px;
+  .error {
+    color: white;
+    background: red;
+    padding: 5px;
+  }
+}
+
+.administrator {
+  float: right;
+  color: white;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-right: 30px;
+}
+
+.logout {
+  float: right;
+  margin-top: 10px;
+  button {
+    padding: 5px 15px 5px 15px;
+    border: solid 1px #282828;
+    background: #83473E;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.box{
+  width: 500px;
+  min-height: 500px;
+  background: white;
+  margin: 0 auto;
+  margin-top: 100px;
+
+  .menu {
+    .option{
+      width: 50%;
+      text-align: center;
+      padding: 10px 0 10px 0;
+      background: #B2AFAE;
+      color: white;
+      font-size: 17px;
+      float: left;
+      cursor: pointer;
+    }
+
+    .option.active {
+      background: #6E2528;
+    }
+  }
+
+  .actions {
+    background: #FAF1D4;
+    width: 200px;
+    float: left;
+    height: 100%;
+  }
+
 }

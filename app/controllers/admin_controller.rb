@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-
+  before_action :check_auth , :only => [:home, :addAdmin]
   def login
     respond_to do |format|
       format.json {
@@ -9,13 +9,17 @@ class AdminController < ApplicationController
             session[:administrator] = admin
             render json: {"result"=> "ok"}
           else
-            render json: {"result"=> "error"}
+            render json: {"result"=> "invalid"}
           end
         else
           render json: {"result"=> "missingParams"}
         end
       }
-      format.html
+      format.html {
+        if(session[:administrator])
+          redirect_to(admin_path)
+        end
+      }
     end
   end
 
@@ -29,6 +33,21 @@ class AdminController < ApplicationController
         render json: {"result" => "ok"}
       }
     end
+  end
+
+  def home
+
+  end
+
+  def check_auth
+    if(session[:administrator].nil?)
+      redirect_to(login_path)
+    end
+    @administrator = session[:administrator]
+  end
+
+  def addAdmin
+
   end
 
 end
