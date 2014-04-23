@@ -14,7 +14,6 @@ class Administrator < ActiveRecord::Base
   
   def self.authenticate(email,password)
     pwd = Digest::SHA1.hexdigest(password.to_s)
-    user = Administrator.find_by_email_and_password(email,pwd)
-    return user 
+    Administrator.find_by_email_and_password(email,pwd)
   end
 end

@@ -11,6 +11,8 @@ class AdminController < ApplicationController
           else
             render json: {"result"=> "error"}
           end
+        else
+          render json: {"result"=> "missingParams"}
         end
       }
       format.html
@@ -19,6 +21,14 @@ class AdminController < ApplicationController
 
   def logout
     session[:administrator] = nil
-    redirect_to(login_path, :notice => "Terminada a sessão de administrador")
+    respond_to do |format|
+      format.html {
+        redirect_to(login_path)
+      }
+      format .json {
+        render json: {"result" => "ok"}
+      }
+    end
   end
+
 end
