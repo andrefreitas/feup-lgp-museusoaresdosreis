@@ -6,13 +6,13 @@ $(document).ready ->
 
 
 
-loginClick = ->
+@loginClick = ->
   email = $('#emailVal').val()
   password = $('#passwordVal').val()
 
-validateLogin = (email, password) ->
+@validateLogin = (email, password) ->
   $.ajaxSetup async: false
-  data = $.getJSON("/api/loginIsValid",
+  data = $.getJSON("/login.json",
     email: email
     password: password
   )

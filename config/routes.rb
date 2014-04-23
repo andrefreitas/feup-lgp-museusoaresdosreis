@@ -1,9 +1,7 @@
 Museusoaresreis::Application.routes.draw do
   resources :administrator
   get "/login" => "admin#login", as: "login"
-  post "/login" => "admin#login"
   get "/logout" => "admin#logout", as: "logout"
-  get "/api/loginIsValid" => "admin#loginIsValid"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
