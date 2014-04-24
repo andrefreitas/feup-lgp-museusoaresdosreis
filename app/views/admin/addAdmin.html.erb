@@ -6,14 +6,22 @@
     <div class="option">Gerir Eventos</div>
   </div>
   <div class="actions">
-    <ul>
-      <li><a href="#">Adicionar Administrador</a></li>
-      <li><a href="#">Remover Administrador</a></li>
-      <li><a href="#">Ver Administradores</a></li>
-      <li><a href="#">Atualizar Administrador</a></li>
-    </ul>
+    <%= render "adminActions" %>
   </div>
-  <div class="view">
+  <div class="view" id="addAdmin">
 
+    <div class="adminPhoto">
+      <img id="previewAdminPhoto"  width="100px" height="100px"/>
+      <input type="file" value="" id="adminPhoto" class="required borrowerImageFile" data-errormsg="PhotoUploadErrorMsg">
+    </div>
+    <div class="notifications">
+
+    </div>
+    <input type="text" id="nameVal" placeholder="Nome"/><br/>
+    <input type="email" id="emailVal" placeholder="Email"/><br/>
+    <input type="password" id="password1Val" placeholder="Password"/><br/>
+    <input type="password" id="password2Val" placeholder="Confirme a password"/><br/>
+
+    <button class="redButton" id="addAdminButton">Adicionar Administrador</button>
   </div>
 </div>

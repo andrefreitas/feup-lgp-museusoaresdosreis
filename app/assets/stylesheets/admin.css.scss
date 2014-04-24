@@ -66,10 +66,18 @@ body {
 
 .notifications {
   margin-bottom: 5px;
-  .error {
+
+  div {
     color: white;
-    background: red;
     padding: 5px;
+    text-align: center;
+  }
+
+  .error {
+    background: red;
+  }
+  .success {
+    background: green;
   }
 }
 
@@ -95,10 +103,11 @@ body {
 
 .box{
   width: 500px;
-  min-height: 500px;
   background: white;
   margin: 0 auto;
   margin-top: 100px;
+  overflow: auto;
+  margin-bottom: 100px;
 
   .menu {
     .option{
@@ -113,15 +122,80 @@ body {
     }
 
     .option.active {
-      background: #6E2528;
+      background: $wineColor;
     }
   }
 
   .actions {
     background: #FAF1D4;
     width: 200px;
+    height: 450px;
     float: left;
-    height: 100%;
+    border-right: solid 1px #231F20;
+    ul {
+      padding: 0;
+      width: 100%;
+      list-style: none;
+    }
+
+    li {
+      padding-left: 25px;
+      margin-top: 25px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
   }
 
+  .view {
+    width: 269px;
+    padding: 15px;
+    float: right;
+
+    input {
+      font-size: 15px;
+      padding: 10px 20px 10px 20px;
+      border: solid 1px #9B9796;
+      box-sizing:border-box;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+}
+
+/* Common Button */
+.redButton{
+  background: $wineColor;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.adminPhoto {
+  margin-bottom: 20px;
+  overflow: auto;
+  img{
+    float: left;
+    background: image-url("default-avatar.png");
+    background-size: 100px 100px;
+  }
+  input {
+    font-size: 11px !important;
+    width: 150px !important;
+    float: right;
+    margin-top: 25px;
+  }
 }
