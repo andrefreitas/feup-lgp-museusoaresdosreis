@@ -47,7 +47,10 @@ class AdminController < ApplicationController
   end
 
   def addAdmin
-
+  	
+  end
+  def create
+   Rails.logger.debug("merda merdamerd ")
   end
 
 end

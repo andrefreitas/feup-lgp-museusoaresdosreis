@@ -4,6 +4,7 @@ Museusoaresreis::Application.routes.draw do
   get "/logout" => "admin#logout", as: "logout"
   get "/admin" => "admin#home", as: "admin"
   get "/admin/addAdmin" => "admin#addAdmin", as: "admin_addAdmin"
+  get "/admin/create" => "administrator#create"  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
