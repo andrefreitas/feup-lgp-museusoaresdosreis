@@ -1,8 +1,8 @@
 class CreateAdministrators < ActiveRecord::Migration
   def change
     create_table :administrators do |t|
-      t.string :name
       t.string :email
+      t.string :name
       t.string :password
 
       t.timestamps
