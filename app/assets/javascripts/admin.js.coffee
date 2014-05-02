@@ -102,6 +102,7 @@ previewImage = (input, where) ->
 @emailIsValid = (email) -> 
   emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
   if email.match(emailPattern) then true else false
+
 @validateAddAdminForm = ->
   clearNotifications()
   name = $("#nameVal").val()
@@ -119,6 +120,9 @@ previewImage = (input, where) ->
     return false
   else if password1.length is 0
     addErrorNotification("Falta a password!")
+    return false
+  else if password1.length < 5
+    addErrorNotification("A password tem que ter no mínimo 5 caracteres")
     return false
   else if password2.length is 0
     addErrorNotification("Falta confirmar a password!")

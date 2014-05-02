@@ -1,6 +1,8 @@
 $wineColor: #6E2528;
 $wineColorLighter: #A77C70;
 $yellowColor: #F8F2D2;
+$redColor1: #83473E;
+$redColor2: #915953;
 
 
 body {
@@ -184,18 +186,30 @@ body {
   cursor: pointer;
 }
 
-.adminPhoto {
-  margin-bottom: 20px;
+/* List Admins */
+.admin{
+  font-size: 18px;
+  color: #282828;
+  padding: 15px 0;
+  border-bottom: solid 1px #9B9796;
   overflow: auto;
-  img{
+
+  .name {
     float: left;
-    background: image-url("default-avatar.png");
-    background-size: 100px 100px;
   }
-  input {
-    font-size: 11px !important;
-    width: 150px !important;
+
+  .action{
     float: right;
-    margin-top: 25px;
+
+    button {
+      background: $redColor1;
+      border: none;
+      color: white;
+      padding: 5px 30px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: $redColor2;
+    }
   }
 }
