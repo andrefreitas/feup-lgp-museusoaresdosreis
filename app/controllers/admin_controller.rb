@@ -49,8 +49,13 @@ class AdminController < ApplicationController
   def addAdmin
   	
   end
+
+  def listAdmins
+    @admins = Administrator.all
+
+  end
+
   def create
-   Rails.logger.debug("merda merdamerd ")
   end
 
 end

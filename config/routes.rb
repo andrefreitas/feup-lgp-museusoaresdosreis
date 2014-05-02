@@ -12,6 +12,8 @@ Museusoaresreis::Application.routes.draw do
   get "/admin/update/:id" => "administrator#update"
   get "/admin/destroy/:id" => "administrator#destroy"
 
+  get "/admin/listAdmins" => "admin#listAdmins", as: "admin_listAdmins"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
