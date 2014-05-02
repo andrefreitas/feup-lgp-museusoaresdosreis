@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  image_id: 
+  code: MyString
 
 two:
   name: MyString
-  image_id: 
+  code: MyString

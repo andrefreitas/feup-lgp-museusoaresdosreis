@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  language: MyString
-  application_id: 
+  name: MyString
+  path: MyString
+  event_id: 
 
 two:
-  language: MyString
-  application_id: 
+  name: MyString
+  path: MyString
+  event_id: 
