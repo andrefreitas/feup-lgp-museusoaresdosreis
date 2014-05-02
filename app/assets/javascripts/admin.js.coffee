@@ -63,7 +63,7 @@ previewImage = (input, where) ->
 
 @addAdmin = (name, email, password) ->
   $.ajaxSetup async: false
-  data = $.getJSON("/administrators/new",
+  data = $.getJSON("/admin/create",
       name: name
       email: email
       password: password
@@ -99,10 +99,9 @@ previewImage = (input, where) ->
 @clearNotifications = ->
   $('.notifications').empty()
 
-@emailIsValid = (email) ->
+@emailIsValid = (email) -> 
   emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
   if email.match(emailPattern) then true else false
-
 @validateAddAdminForm = ->
   clearNotifications()
   name = $("#nameVal").val()
