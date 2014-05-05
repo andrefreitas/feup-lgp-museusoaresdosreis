@@ -1,0 +1,28 @@
+<% content_for :title, "Criar Evento" %>
+<%= render "header" %>
+<div class="box">
+  <div class="menu">
+    <div class="option">Gerir Administradores</div>
+    <div class="option active">Gerir Eventos</div>
+  </div>
+  <div class="actions">
+    <%= render "eventsActions" %>
+  </div>
+  <div class="view" id="addEvent">
+
+    <div class="notifications">
+
+    </div>
+
+    <input type="date" name="date"/>
+    <input type="text" name="local" placeholder="Localização"/>
+    <textarea rows="10">Introduzir a descrição aqui</textarea>
+    Inserir Imagens
+    <div class="imagesArea">
+      <input type="file" name="image"/>
+    </div>
+
+    <button class="neutralButton" id="addImagesButton">Adicionar mais imagens</button>
+    <button class="redButton" id="addEventButton">Criar Evento</button>
+  </div>
+</div>

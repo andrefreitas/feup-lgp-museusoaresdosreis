@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
-  before_action :check_auth , :only => [:home, :addAdmin]
+  before_action :check_auth , :only => [:home, :addAdmin, :addEvent]
+
   def login
     respond_to do |format|
       format.json {
@@ -36,7 +37,6 @@ class AdminController < ApplicationController
   end
 
   def home
-
   end
 
   def check_auth
@@ -47,15 +47,16 @@ class AdminController < ApplicationController
   end
 
   def addAdmin
-  	
   end
 
   def listAdmins
     @admins = Administrator.all
-
   end
 
   def create
+  end
+
+  def addEvent
   end
 
 end

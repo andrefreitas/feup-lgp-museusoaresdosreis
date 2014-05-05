@@ -3,6 +3,7 @@ $wineColorLighter: #A77C70;
 $yellowColor: #F8F2D2;
 $redColor1: #83473E;
 $redColor2: #915953;
+$lightGray: #B2AFAE;
 
 
 body {
@@ -116,7 +117,7 @@ body {
       width: 50%;
       text-align: center;
       padding: 10px 0 10px 0;
-      background: #B2AFAE;
+      background: $lightGray;
       color: white;
       font-size: 17px;
       float: left;
@@ -186,6 +187,16 @@ body {
   cursor: pointer;
 }
 
+.neutralButton{
+  background: $lightGray;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
 /* List Admins */
 .admin{
   font-size: 18px;
@@ -211,5 +222,12 @@ body {
     button:hover {
       background: $redColor2;
     }
+  }
+}
+
+/* Add Event */
+#addEvent {
+  textarea {
+    width: 100%;
   }
 }

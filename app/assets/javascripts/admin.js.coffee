@@ -1,9 +1,11 @@
 
 $(document).ready ->
+  window.images = 0 # Counter for uploading images
   $('#loginButton').click -> loginClick()
   $('#logoutButton').click -> logoutClick()
   $('#addAdminButton').click -> addAdminClick()
   $("#adminPhoto").change -> previewAdminPhoto(this)
+  $("#addImagesButton").click -> addImagesClick()
 
 
 # Events Handlers
@@ -43,6 +45,14 @@ previewImage = (input, where) ->
 
     reader.readAsDataURL input.files[0]
   return
+
+# DOM
+@addImagesClick = ->
+  window.images = window.images + 1
+  if window.images < 3
+    $(".imagesArea").append('<input type="file" name="image' + window.images + '"/>')
+
+
 
 # API calls
 
