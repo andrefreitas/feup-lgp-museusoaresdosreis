@@ -1,10 +1,17 @@
 Museusoaresreis::Application.routes.draw do
   resources :administrator
+
+  root to: "admin#login"
   get "/login" => "admin#login", as: "login"
   get "/logout" => "admin#logout", as: "logout"
   get "/admin" => "admin#home", as: "admin"
   get "/admin/addAdmin" => "admin#addAdmin", as: "admin_addAdmin"
   get "/admin/create" => "administrator#create"
+  get "/admin/all" => "administrator#index"
+  get "/admin/:id" => "administrator#show"
+  get "/admin/update/:id" => "administrator#update"
+  get "/admin/destroy/:id" => "administrator#destroy"
+
   get "/admin/listAdmins" => "admin#listAdmins", as: "admin_listAdmins"
 
   # The priority is based upon order of creation: first created -> highest priority.

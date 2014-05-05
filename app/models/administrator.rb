@@ -4,11 +4,6 @@ class Administrator < ActiveRecord::Base
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 5 }
   before_save :encrypt_password
-  before_save :default_values
-
-  def default_values
-    self.image ||= "teste"
-  end
 
   def encrypt_password
     unless self.password.blank?
