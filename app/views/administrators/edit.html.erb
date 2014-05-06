@@ -1,2 +1,19 @@
-<h1>Administrators#edit</h1>
-<p>Find me in app/views/administrators/edit.html.erb</p>
+<% content_for :title, "Adicionar Administrador" %>
+<%= render :partial => "admin/header" %>
+<div class="box">
+  <%= render :partial => "admin/menu"  %>
+  <div class="actions">
+    <%= render :partial => "admin/adminActions"  %>
+  </div>
+  <div class="view" id="editAdmin">
+
+    <div class="notifications">
+    </div>
+    <input type="text" id="nameVal" placeholder="Nome" value="<%=@administrator.name%>"/><br/>
+    <input type="email" id="emailVal" placeholder="Email" value="<%=@administrator.email%>"/><br/>
+    <input type="password" id="password1Val" placeholder="Nova password"/><br/>
+    <input type="password" id="password2Val" placeholder="Confirme a password"/><br/>
+
+    <button class="redButton" id="updateAdminButton" admin="<%=@administrator.id%>">Atualizar Administrador</button>
+  </div>
+</div>

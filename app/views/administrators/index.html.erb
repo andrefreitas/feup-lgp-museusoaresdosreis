@@ -8,9 +8,9 @@
   <div class="view" id="listAdmins">
 
     <% @administrator.each do |admin|%>
-        <div class="admin">
+        <div class="admin" id="<%=admin.id %>">
           <div class="name"><%=admin.name %></div>
-          <div class="action"><button>Ver</button></div>
+          <div class="action"><a href="<%= edit_administrator_path(admin.id)%>"><button>Ver</button></a></div>
         </div>
     <% end %>
 

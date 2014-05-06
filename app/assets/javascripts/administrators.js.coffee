@@ -2,6 +2,7 @@
 
 $(document).ready ->
   $('#addAdminButton').click -> addAdminClick()
+  $('#updateAdminButton').click -> updateAdminClick(this)
 
 # Events Handlers
 
@@ -10,21 +11,53 @@ addAdminClick = ->
     name = $("#nameVal").val()
     email = $("#emailVal").val()
     password = $("#password1Val").val()
-    if(addAdmin(name, email, password))
+    result = addAdmin(name, email, password)
+    if (result[0] is "emailExists")
+      addErrorNotification("O email já existe!")
+    else
       $("#addAdmin input").prop "disabled", true
       $("#addAdmin button").hide()
       addSuccessNotification("Administrador adicionado!")
+
+updateAdminClick = (elem) ->
+  if(validateUpdateAdminForm())
+    adminID = $(elem).attr("admin")
+    name = $("#nameVal").val()
+    email = $("#emailVal").val()
+    password = $("#password1Val").val()
+    result = updateAdmin(adminID, name, email, password)
+    if (result[0] is "emailExists")
+      addErrorNotification("O email já existe!")
+    else
+      $("#editAdmin input").prop "disabled", true
+      $("#editAdmin button").hide()
+      addSuccessNotification("Administrador atualizado!")
 
 # API calls
 
 @addAdmin = (name, email, password) ->
   $.ajaxSetup async: false
-  data = $.getJSON("/administrators/create",
+  data = $.post("/administrators.json",
     name: name
     email: email
     password: password
   )
   $.ajaxSetup async: true
+  data.responseJSON
+
+@updateAdmin = (adminID, name, email, password) ->
+  data = $.ajax({
+    url: '/administrators/' + adminID + '.json',
+    type: 'PUT',
+    data: {
+      name : name
+      email: email
+      password: password
+    },
+    async: false
+  })
+  data.responseJSON
+
 
 # Form Validation
 
@@ -56,3 +89,26 @@ addAdminClick = ->
     addErrorNotification("Passwords diferentes!")
     return false
   true
+
+@validateUpdateAdminForm = ->
+    clearNotifications()
+    name = $("#nameVal").val()
+    email = $("#emailVal").val()
+    password1 = $("#password1Val").val()
+    password2 = $("#password2Val").val()
+    if name.length is 0
+      addErrorNotification("Falta o nome!")
+      return false
+    else if email.length is 0
+      addErrorNotification("Falta o email!")
+      return false
+    else if !emailIsValid(email)
+      addErrorNotification("Email inválido!")
+      return false
+    else if password1.length > 0 and password1.length < 5
+      addErrorNotification("A password tem que ter no mínimo 5 caracteres")
+      return false
+    else if password1.length >= 5 and password1 != password2
+      addErrorNotification("Passwords diferentes!")
+      return false
+    return true
