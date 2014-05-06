@@ -9,16 +9,20 @@ Museusoaresreis::Application.routes.draw do
 
   # Administrators Administration
   get "/admin" => "admin#home", as: "admin"
-  get "/admin/addAdmin" => "admin#addAdmin", as: "admin_addAdmin"
+  get "/addAdmin" => "admin#addAdmin", as: "admin_addAdmin"
+  get "/listAdmins" => "admin#listAdmins", as: "admin_listAdmins"
+
+  # Events Administration
+  get "/addEvent" => "admin#addEvent", as: "admin_addEvent"
+
+  #Administrator Rest
   get "/admin/create" => "administrator#create"
   get "/admin/all" => "administrator#index"
   get "/admin/:id" => "administrator#show"
   get "/admin/update/:id" => "administrator#update"
   get "/admin/destroy/:id" => "administrator#destroy"
-  get "/admin/listAdmins" => "admin#listAdmins", as: "admin_listAdmins"
 
-  # Events Administration
-  get "/addEvent" => "admin#addEvent", as: "admin_addEvent"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

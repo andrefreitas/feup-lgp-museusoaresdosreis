@@ -37,6 +37,7 @@ class AdminController < ApplicationController
   end
 
   def home
+    redirect_to(admin_addEvent_path)
   end
 
   def check_auth
@@ -47,9 +48,13 @@ class AdminController < ApplicationController
   end
 
   def addAdmin
+    @adminsMenu = "active"
+    @eventsMenu = ""
   end
 
   def listAdmins
+    @adminsMenu = "active"
+    @eventsMenu = ""
     @admins = Administrator.all
   end
 
@@ -57,6 +62,8 @@ class AdminController < ApplicationController
   end
 
   def addEvent
+    @adminsMenu = ""
+    @eventsMenu = "active"
   end
 
 end
