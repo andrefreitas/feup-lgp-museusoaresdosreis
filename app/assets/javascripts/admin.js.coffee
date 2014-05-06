@@ -1,23 +1,8 @@
+# Events Binding
 
 $(document).ready ->
   $('#loginButton').click -> loginClick()
   $('#logoutButton').click -> logoutClick()
-  $('#addAdminButton').click -> addAdminClick()
-  $("#adminPhoto").change -> previewAdminPhoto(this)
-  $("#addImagesButton").click -> addImagesClick()
-  $("#localInput").keyup -> localInputWrite(this)
-  $(".locationResults li").click -> locationResultClick(this)
-  $("#datepicker").datepicker({
-    dateFormat: 'dd/mm/yy',
-    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-    nextText: 'Próximo',
-    prevText: 'Anterior'})
-
-
 
 # Events Handlers
 
@@ -33,47 +18,6 @@ loginClick = ->
 logoutClick = ->
   logout()
   location.reload()
-
-addAdminClick = ->
-  if(validateAddAdminForm())
-    name = $("#nameVal").val()
-    email = $("#emailVal").val()
-    password = $("#password1Val").val()
-    if(addAdmin(name, email, password))
-      $("#addAdmin input").prop "disabled", true
-      $("#addAdmin button").hide()
-      addSuccessNotification("Administrador adicionado!")
-
-previewPhoto = (input, where)->
-  previewImage(input, where)
-
-previewImage = (input, where) ->
-  if input.files and input.files[0]
-    reader = new FileReader()
-    reader.onload = (e) ->
-      $(where).attr "src", e.target.result
-      return
-    reader.readAsDataURL input.files[0]
-  return
-
-
-localInputWrite = (elem) ->
-  $(".locationResults").hide()
-  $(".locationResults ul").html("")
-  searchTerm =  $(elem).val()
-  if(searchTerm.length > 0)
-    locations = getLocations(searchTerm)
-    if locations.length > 0
-      for location in locations
-        $(".locationResults ul").append("<li>" + location + "</li>")
-      $(".locationResults li").click -> locationResultClick(this)
-      $(".locationResults").show()
-      console.log(locations)
-
-locationResultClick = (elem)->
-  text = $(elem).html()
-  $("#localInput").val(text)
-  $(".locationResults").hide()
 
 # API calls
 
@@ -92,22 +36,6 @@ locationResultClick = (elem)->
   $.ajaxSetup async: true
   $.parseJSON(data["responseText"])["result"] is "ok"
 
-@addAdmin = (name, email, password) ->
-  $.ajaxSetup async: false
-  data = $.getJSON("/admin/create",
-      name: name
-      email: email
-      password: password
-  )
-  $.ajaxSetup async: true
-
-@getLocations = (searchTerm) ->
-  $.ajaxSetup async: false
-  data = $.getJSON("listLocations.json",
-    searchTerm: searchTerm
-  )
-  $.ajaxSetup async: true
-  return data.responseJSON
 
 # Form Validation
 
@@ -126,46 +54,6 @@ locationResultClick = (elem)->
   clearNotifications()
   return true
 
-imageIsValid = (path) ->
-  /.(png|jpg|jpeg)$/i.test(path)
-
-@validateAddEvent = ->
-  clearNotifications()
-  data = {}
-  data["date"]= $("#datepicker").val()
-  data["text"]= $("#text").val()
-  data["local"] = $("#localInput").val()
-  data["image1"] = $("#image1").val()
-  data["image2"] = $("#image2").val()
-  data["image3"] = $("#image3").val()
-
-  if(data["date"].length is 0)
-    addErrorNotification("Falta a data")
-    return false
-  else if(data["local"].length is 0)
-    addErrorNotification("Falta a localização")
-    return false
-  else if(data["text"].length is 0 )
-    addErrorNotification("Falta o texto")
-    return false
-  else if((data["image1"] + data["image2"] + data["image3"]).length is 0 )
-    addErrorNotification("Adicione pelo menos uma imagem")
-    return false
-
-  if(data["image1"].length > 0 and !imageIsValid(data["image1"]))
-    addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
-    return false
-
-  if(data["image2"].length > 0 and !imageIsValid(data["image2"]))
-    addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
-    return false
-
-  if(data["image3"].length > 0 and !imageIsValid(data["image3"]))
-    addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
-    return false
-
-  console.log(data)
-  return true
 
 @addErrorNotification = (message) ->
   clearNotifications()
@@ -182,31 +70,3 @@ imageIsValid = (path) ->
   emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
   if email.match(emailPattern) then true else false
 
-@validateAddAdminForm = ->
-  clearNotifications()
-  name = $("#nameVal").val()
-  email = $("#emailVal").val()
-  password1 = $("#password1Val").val()
-  password2 = $("#password2Val").val()
-  if name.length is 0
-    addErrorNotification("Falta o nome!")
-    return false
-  else if email.length is 0
-    addErrorNotification("Falta o email!")
-    return false
-  else if !emailIsValid(email)
-    addErrorNotification("Email inválido!")
-    return false
-  else if password1.length is 0
-    addErrorNotification("Falta a password!")
-    return false
-  else if password1.length < 5
-    addErrorNotification("A password tem que ter no mínimo 5 caracteres")
-    return false
-  else if password2.length is 0
-    addErrorNotification("Falta confirmar a password!")
-    return false
-  else if password1 != password2
-    addErrorNotification("Passwords diferentes!")
-    return false
-  true

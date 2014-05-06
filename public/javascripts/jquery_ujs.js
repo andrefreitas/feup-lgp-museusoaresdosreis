@@ -81,7 +81,7 @@
       return $.ajax(options);
     },
 
-    // Default way to get an element's href. May be overridden at $.rails.href.
+    // Default way to get an element'show href. May be overridden at $.rails.href.
     href: function(element) {
       return element.attr('href');
     },
@@ -215,8 +215,8 @@
       - Fires the `confirm:complete` event
 
       Returns `true` if no function stops the chain and user chose yes; `false` otherwise.
-      Attaching a handler to the element's `confirm` event that returns a `falsy` value cancels the confirmation dialog.
-      Attaching a handler to the element's `confirm:complete` event that returns a `falsy` value makes this function
+      Attaching a handler to the element'show `confirm` event that returns a `falsy` value cancels the confirmation dialog.
+      Attaching a handler to the element'show `confirm:complete` event that returns a `falsy` value makes this function
       return false. The `confirm:complete` event is fired whether or not the user answered true or false to the dialog.
    */
     allowAction: function(element) {
@@ -266,7 +266,7 @@
       return false;
     },
 
-    //  replace element's html with the 'data-disable-with' after storing original html
+    //  replace element'show html with the 'data-disable-with' after storing original html
     //  and prevent clicking on it
     disableElement: function(element) {
       element.data('ujs:enable-with', element.html()); // store enabled state

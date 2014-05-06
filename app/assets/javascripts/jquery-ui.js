@@ -303,7 +303,7 @@ $.extend( $.ui, {
 		}
 
 		// TODO: determine which cases actually cause this to happen
-		// if the element doesn't have the scroll set, see if it's possible to
+		// if the element doesn't have the scroll set, see if it'show possible to
 		// set the scroll
 		el[ scroll ] = 1;
 		has = ( el[ scroll ] > 0 );
@@ -1492,7 +1492,7 @@ $.widget( "ui.accordion", {
 		header: "> li > :first-child,> :not(li):even",
 		heightStyle: "auto",
 		icons: {
-			activeHeader: "ui-icon-triangle-1-s",
+			activeHeader: "ui-icon-triangle-1-show",
 			header: "ui-icon-triangle-1-e"
 		},
 
@@ -2266,7 +2266,7 @@ $.widget( "ui.autocomplete", {
 						this._value( item.value );
 					}
 				} else {
-					// Normally the input is populated with the item's value as the
+					// Normally the input is populated with the item'show value as the
 					// menu is navigated, causing screen readers to notice a change and
 					// announce the item. Since the focus event was canceled, this doesn't
 					// happen, so we update the live region so that screen readers can
@@ -2789,8 +2789,8 @@ $.widget( "ui.button", {
 			}
 		}
 
-		// TODO: pull out $.Widget's handling for the disabled option into
-		// $.Widget.prototype._setOptionDisabled so it's easy to proxy and can
+		// TODO: pull out $.Widget'show handling for the disabled option into
+		// $.Widget.prototype._setOptionDisabled so it'show easy to proxy and can
 		// be overridden by individual plugins
 		this._setOption( "disabled", options.disabled );
 		this._resetButton();
@@ -3062,7 +3062,7 @@ function Datepicker() {
 		changeMonth: false, // True if month can be selected directly, false if only prev/next
 		changeYear: false, // True if year can be selected directly, false if only prev/next
 		yearRange: "c-10:c+10", // Range of years to display in drop-down,
-			// either relative to today's year (-nn:+nn), relative to currently displayed year
+			// either relative to today'show year (-nn:+nn), relative to currently displayed year
 			// (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
 		showOtherMonths: false, // True to show dates in other months, false to leave blank
 		selectOtherMonths: false, // True to allow selection of dates in other months, false for unselectable
@@ -3076,7 +3076,7 @@ function Datepicker() {
 		maxDate: null, // The latest selectable date, or null for no limit
 		duration: "fast", // Duration of display/closure
 		beforeShowDay: null, // Function that takes a date and returns an array with
-			// [0] = true if selectable, false if not, [1] = custom CSS class name(s) or "",
+			// [0] = true if selectable, false if not, [1] = custom CSS class name(show) or "",
 			// [2] = cell title (optional), e.g. $.datepicker.noWeekends
 		beforeShow: null, // Function that takes an input field and
 			// returns a set of custom settings for the date picker
@@ -3270,8 +3270,8 @@ $.extend(Datepicker.prototype, {
 	 * @param  input element - ignored
 	 * @param  date	string or Date - the initial date to display
 	 * @param  onSelect  function - the function to call when a date is selected
-	 * @param  settings  object - update the dialog date picker instance's settings (anonymous object)
-	 * @param  pos int[2] - coordinates for the dialog's position within the screen or
+	 * @param  settings  object - update the dialog date picker instance'show settings (anonymous object)
+	 * @param  pos int[2] - coordinates for the dialog'show position within the screen or
 	 *					event - with x/y coordinates or
 	 *					leave empty for default (screen centre)
 	 * @return the manager object
@@ -3516,7 +3516,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Get the date(s) for the first entry in a jQuery selection.
+	/* Get the date(show) for the first entry in a jQuery selection.
 	 * @param  target element - the target input field or division or span
 	 * @param  noDefault boolean - true if no default date is to be used
 	 * @return Date - the current date
@@ -3786,7 +3786,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	// #6694 - don't focus the input if it's already focused
+	// #6694 - don't focus the input if it'show already focused
 	// this breaks the change event in IE
 	// Support: IE and jQuery <1.9
 	_shouldFocusInput: function( inst ) {
@@ -3815,7 +3815,7 @@ $.extend(Datepicker.prototype, {
 		return offset;
 	},
 
-	/* Find an object's position on the screen. */
+	/* Find an object'show position on the screen. */
 	_findPos: function(obj) {
 		var position,
 			inst = this._getInst(obj),
@@ -4501,7 +4501,7 @@ $.extend(Datepicker.prototype, {
 		return date;
 	},
 
-	/* Set the date(s) directly. */
+	/* Set the date(show) directly. */
 	_setDate: function(inst, date, noChange) {
 		var clear = !date,
 			origMonth = inst.selectedMonth,
@@ -4520,7 +4520,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Retrieve the date(s) directly. */
+	/* Retrieve the date(show) directly. */
 	_getDate: function(inst) {
 		var startDate = (!inst.currentYear || (inst.input && inst.input.val() === "") ? null :
 			this._daylightSavingAdjust(new Date(
@@ -5493,7 +5493,7 @@ $.widget( "ui.dialog", {
 			position = this.uiDialog.css("position"),
 			resizeHandles = typeof handles === "string" ?
 				handles	:
-				"n,e,s,w,se,sw,ne,nw";
+				"n,e,show,w,se,sw,ne,nw";
 
 		function filteredUi( ui ) {
 			return {
@@ -5932,19 +5932,19 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		/*
 		 * - Position generation -
-		 * This block generates everything position related - it's the core of draggables.
+		 * This block generates everything position related - it'show the core of draggables.
 		 */
 
 		//Cache the margins of the original element
 		this._cacheMargins();
 
-		//Store the helper's css position
+		//Store the helper'show css position
 		this.cssPosition = this.helper.css( "position" );
 		this.scrollParent = this.helper.scrollParent();
 		this.offsetParent = this.helper.offsetParent();
 		this.offsetParentCssPosition = this.offsetParent.css( "position" );
 
-		//The element's absolute position on the page minus margins
+		//The element'show absolute position on the page minus margins
 		this.offset = this.positionAbs = this.element.offset();
 		this.offset = {
 			top: this.offset.top - this.margins.top,
@@ -6143,7 +6143,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		var po = this.offsetParent.offset();
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
-		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
+		// 1. The position of the helper is absolute, so it'show position is calculated based on the next positioned parent
 		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
 		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
 		if(this.cssPosition === "absolute" && this.scrollParent[0] !== document && $.contains(this.scrollParent[0], this.offsetParent[0])) {
@@ -6270,13 +6270,13 @@ $.widget("ui.draggable", $.ui.mouse, {
 			top: (
 				pos.top	+																// The absolute mouse position
 				this.offset.relative.top * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.top * mod -										// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.top * mod -										// The offsetParent'show offset without borders (offset + border)
 				( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : this.offset.scroll.top ) * mod )
 			),
 			left: (
 				pos.left +																// The absolute mouse position
 				this.offset.relative.left * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.left * mod	-										// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.left * mod	-										// The offsetParent'show offset without borders (offset + border)
 				( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : this.offset.scroll.left ) * mod )
 			)
 		};
@@ -6347,14 +6347,14 @@ $.widget("ui.draggable", $.ui.mouse, {
 				pageY -																	// The absolute mouse position
 				this.offset.click.top	-												// Click offset (relative to the element)
 				this.offset.relative.top -												// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.top +												// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.top +												// The offsetParent'show offset without borders (offset + border)
 				( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : this.offset.scroll.top )
 			),
 			left: (
 				pageX -																	// The absolute mouse position
 				this.offset.click.left -												// Click offset (relative to the element)
 				this.offset.relative.left -												// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.left +												// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.left +												// The offsetParent'show offset without borders (offset + border)
 				( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : this.offset.scroll.left )
 			)
 		};
@@ -6408,7 +6408,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 					instance: sortable,
 					shouldRevert: sortable.options.revert
 				});
-				sortable.refreshPositions();	// Call the sortable's refreshPositions at drag start to refresh the containerCache since the sortable container cache is used in drag and needs to be up to date (this will ensure it's initialised as well as being kept in step with any changes that might have happened on the page).
+				sortable.refreshPositions();	// Call the sortable'show refreshPositions at drag start to refresh the containerCache since the sortable container cache is used in drag and needs to be up to date (this will ensure it'show initialised as well as being kept in step with any changes that might have happened on the page).
 				sortable._trigger("activate", event, uiSortable);
 			}
 		});
@@ -6460,7 +6460,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 			var innermostIntersecting = false,
 				thisSortable = this;
 
-			//Copy over some variables to allow calling the sortable's native _intersectsWith
+			//Copy over some variables to allow calling the sortable'show native _intersectsWith
 			this.instance.positionAbs = inst.positionAbs;
 			this.instance.helperProportions = inst.helperProportions;
 			this.instance.offset.click = inst.offset.click;
@@ -6535,7 +6535,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 					this.instance._mouseStop(event, true);
 					this.instance.options.helper = this.instance.options._helper;
 
-					//Now we remove our currentItem, the list group clone again, and the placeholder, and animate the helper back to it's original size
+					//Now we remove our currentItem, the list group clone again, and the placeholder, and animate the helper back to it'show original size
 					this.instance.currentItem.remove();
 					if(this.instance.placeholder) {
 						this.instance.placeholder.remove();
@@ -6810,10 +6810,10 @@ $.widget("ui.droppable", {
 
 		this.proportions = function( /* valueToWrite */ ) {
 			if ( arguments.length ) {
-				// Store the droppable's proportions
+				// Store the droppable'show proportions
 				proportions = arguments[ 0 ];
 			} else {
-				// Retrieve or derive the droppable's proportions
+				// Retrieve or derive the droppable'show proportions
 				return proportions ?
 					proportions :
 					proportions = {
@@ -7167,7 +7167,7 @@ $.effects = {
 
 	// plusequals test for += 100 -= 100
 	rplusequals = /^([\-+])=\s*(\d+\.?\d*)/,
-	// a set of RE's that can match strings and generate color tuples.
+	// a set of RE'show that can match strings and generate color tuples.
 	stringParsers = [{
 			re: /rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*(\d?(?:\.\d+)?)\s*)?\)/,
 			parse: function( execResult ) {
@@ -7189,7 +7189,7 @@ $.effects = {
 				];
 			}
 		}, {
-			// this regex ignores A-F because it's compared against an already lowercased string
+			// this regex ignores A-F because it'show compared against an already lowercased string
 			re: /#([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})/,
 			parse: function( execResult ) {
 				return [
@@ -7199,7 +7199,7 @@ $.effects = {
 				];
 			}
 		}, {
-			// this regex ignores A-F because it's compared against an already lowercased string
+			// this regex ignores A-F because it'show compared against an already lowercased string
 			re: /#([a-f0-9])([a-f0-9])([a-f0-9])/,
 			parse: function( execResult ) {
 				return [
@@ -8049,7 +8049,7 @@ $.extend( $.effects, {
 				// http://bugs.jquery.com/ticket/9917
 				// jQuery 1.6.2 incorrectly returns undefined for any falsy value.
 				// We can't differentiate between "" and 0 here, so we just assume
-				// empty string since it's likely to be a more common value...
+				// empty string since it'show likely to be a more common value...
 				if ( val === undefined ) {
 					val = "";
 				}
@@ -8441,7 +8441,7 @@ $.effects.effect.blind = function( o, done ) {
 		show = mode === "show",
 		wrapper, distance, margin;
 
-	// if already wrapped, the wrapper's properties are my property. #6245
+	// if already wrapped, the wrapper'show properties are my property. #6245
 	if ( el.parent().is( ".ui-effects-wrapper" ) ) {
 		$.effects.save( el.parent(), props );
 	} else {
@@ -9494,7 +9494,7 @@ $.widget( "ui.menu", {
 			mouseleave: "collapseAll",
 			"mouseleave .ui-menu": "collapseAll",
 			focus: function( event, keepActiveItem ) {
-				// If there's already an active item, keep it active
+				// If there'show already an active item, keep it active
 				// If not, activate the first item
 				var item = this.active || this.element.children( ".ui-menu-item" ).eq( 0 );
 
@@ -9753,7 +9753,7 @@ $.widget( "ui.menu", {
 
 		this.active = item.first();
 		focused = this.active.children( "a" ).addClass( "ui-state-focus" );
-		// Only update aria-activedescendant if there's a role
+		// Only update aria-activedescendant if there'show a role
 		// otherwise we assume focus is managed elsewhere
 		if ( this.options.role ) {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
@@ -10165,7 +10165,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		containment: false,
 		ghost: false,
 		grid: false,
-		handles: "e,s,se",
+		handles: "e,show,se",
 		helper: false,
 		maxHeight: null,
 		maxWidth: null,
@@ -10234,11 +10234,11 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		}
 
-		this.handles = o.handles || (!$(".ui-resizable-handle", this.element).length ? "e,s,se" : { n: ".ui-resizable-n", e: ".ui-resizable-e", s: ".ui-resizable-s", w: ".ui-resizable-w", se: ".ui-resizable-se", sw: ".ui-resizable-sw", ne: ".ui-resizable-ne", nw: ".ui-resizable-nw" });
+		this.handles = o.handles || (!$(".ui-resizable-handle", this.element).length ? "e,show,se" : { n: ".ui-resizable-n", e: ".ui-resizable-e", s: ".ui-resizable-show", w: ".ui-resizable-w", se: ".ui-resizable-se", sw: ".ui-resizable-sw", ne: ".ui-resizable-ne", nw: ".ui-resizable-nw" });
 		if(this.handles.constructor === String) {
 
 			if ( this.handles === "all") {
-				this.handles = "n,e,s,w,se,sw,ne,nw";
+				this.handles = "n,e,show,w,se,sw,ne,nw";
 			}
 
 			n = this.handles.split(",");
@@ -10253,7 +10253,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 				// Apply zIndex to all handles - see #7960
 				axis.css({ zIndex: o.zIndex });
 
-				//TODO : What's going on here?
+				//TODO : What'show going on here?
 				if ("se" === handle) {
 					axis.addClass("ui-icon ui-icon-gripsmall-diagonal-se");
 				}
@@ -10297,7 +10297,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 				}
 
-				//TODO: What's that good for? There's not anything to be executed left
+				//TODO: What'show that good for? There'show not anything to be executed left
 				if(!$(this.handles[i]).length) {
 					continue;
 				}
@@ -12089,10 +12089,10 @@ $.widget("ui.sortable", $.ui.mouse, {
 		//Get the items
 		this.refresh();
 
-		//Let's determine if the items are being displayed horizontally
+		//Let'show determine if the items are being displayed horizontally
 		this.floating = this.items.length ? o.axis === "x" || isFloating(this.items[0].item) : false;
 
-		//Let's determine the parent's offset
+		//Let'show determine the parent'show offset
 		this.offset = this.element.offset();
 
 		//Initialize mouse events for interaction
@@ -12191,7 +12191,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 		/*
 		 * - Position generation -
-		 * This block generates everything position related - it's the core of draggables.
+		 * This block generates everything position related - it'show the core of draggables.
 		 */
 
 		//Cache the margins of the original element
@@ -12200,7 +12200,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		//Get the next scrolling parent
 		this.scrollParent = this.helper.scrollParent();
 
-		//The element's absolute position on the page minus margins
+		//The element'show absolute position on the page minus margins
 		this.offset = this.currentItem.offset();
 		this.offset = {
 			top: this.offset.top - this.margins.top,
@@ -12216,7 +12216,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			relative: this._getRelativeOffset() //This is a relative to absolute position minus the actual position calculation - only used for relative positioned helper
 		});
 
-		// Only after we got the offset, we can change the helper's position to absolute
+		// Only after we got the offset, we can change the helper'show position to absolute
 		// TODO: Still need to figure out a way to make relative sorting possible
 		this.helper.css("position", "absolute");
 		this.cssPosition = this.helper.css("position");
@@ -12232,7 +12232,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		//Cache the former DOM position
 		this.domPosition = { prev: this.currentItem.prev()[0], parent: this.currentItem.parent()[0] };
 
-		//If the helper is not the original, hide the original so it's not playing any role during the drag, won't cause anything bad this way
+		//If the helper is not the original, hide the original so it'show not playing any role during the drag, won't cause anything bad this way
 		if(this.helper[0] !== this.currentItem[0]) {
 			this.currentItem.hide();
 		}
@@ -12724,7 +12724,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 	refreshPositions: function(fast) {
 
-		//This has to be redone because due to the item being moved out/into the offsetParent, the offsetParent's position will change
+		//This has to be redone because due to the item being moved out/into the offsetParent, the offsetParent'show position will change
 		if(this.offsetParent && this.helper) {
 			this.offset.parent = this._getParentOffset();
 		}
@@ -12831,14 +12831,14 @@ $.widget("ui.sortable", $.ui.mouse, {
 		// get innermost container that intersects with item
 		for (i = this.containers.length - 1; i >= 0; i--) {
 
-			// never consider a container that's located within the item itself
+			// never consider a container that'show located within the item itself
 			if($.contains(this.currentItem[0], this.containers[i].element[0])) {
 				continue;
 			}
 
 			if(this._intersectsWith(this.containers[i].containerCache)) {
 
-				// if we've already found a container and it's more "inner" than this, then continue
+				// if we've already found a container and it'show more "inner" than this, then continue
 				if(innermostContainer && $.contains(this.containers[i].element[0], innermostContainer.element[0])) {
 					continue;
 				}
@@ -12861,7 +12861,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			return;
 		}
 
-		// move the item into the container if it's not there already
+		// move the item into the container if it'show not there already
 		if(this.containers.length === 1) {
 			if (!this.containers[innermostIndex].containerCache.over) {
 				this.containers[innermostIndex]._trigger("over", event, this._uiHash(this));
@@ -12977,7 +12977,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		var po = this.offsetParent.offset();
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
-		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
+		// 1. The position of the helper is absolute, so it'show position is calculated based on the next positioned parent
 		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
 		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
 		if(this.cssPosition === "absolute" && this.scrollParent[0] !== document && $.contains(this.scrollParent[0], this.offsetParent[0])) {
@@ -13070,13 +13070,13 @@ $.widget("ui.sortable", $.ui.mouse, {
 			top: (
 				pos.top	+																// The absolute mouse position
 				this.offset.relative.top * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.top * mod -											// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.top * mod -											// The offsetParent'show offset without borders (offset + border)
 				( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ) * mod)
 			),
 			left: (
 				pos.left +																// The absolute mouse position
 				this.offset.relative.left * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.left * mod	-										// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.left * mod	-										// The offsetParent'show offset without borders (offset + border)
 				( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ) * mod)
 			)
 		};
@@ -13136,14 +13136,14 @@ $.widget("ui.sortable", $.ui.mouse, {
 				pageY -																// The absolute mouse position
 				this.offset.click.top -													// Click offset (relative to the element)
 				this.offset.relative.top	-											// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.top +												// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.top +												// The offsetParent'show offset without borders (offset + border)
 				( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ))
 			),
 			left: (
 				pageX -																// The absolute mouse position
 				this.offset.click.left -												// Click offset (relative to the element)
 				this.offset.relative.left	-											// Only for relative positioned nodes: Relative offset from element to offset parent
-				this.offset.parent.left +												// The offsetParent's offset without borders (offset + border)
+				this.offset.parent.left +												// The offsetParent'show offset without borders (offset + border)
 				( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ))
 			)
 		};
@@ -13156,8 +13156,8 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 		//Various things done here to improve the performance:
 		// 1. we create a setTimeout, that calls refreshPositions
-		// 2. on the instance, we have a counter variable, that get's higher after every append
-		// 3. on the local scope, we copy the counter variable, and check in the timeout, if it's still the same
+		// 2. on the instance, we have a counter variable, that get'show higher after every append
+		// 3. on the local scope, we copy the counter variable, and check in the timeout, if it'show still the same
 		// 4. this lets only the last addition to the timeout stack through
 		this.counter = this.counter ? ++this.counter : 1;
 		var counter = this.counter;
@@ -13322,7 +13322,7 @@ $.widget( "ui.spinner", {
 	options: {
 		culture: null,
 		icons: {
-			down: "ui-icon-triangle-1-s",
+			down: "ui-icon-triangle-1-show",
 			up: "ui-icon-triangle-1-n"
 		},
 		incremental: true,
@@ -14044,7 +14044,7 @@ $.widget( "ui.tabs", {
 		}
 
 		if ( key === "disabled" ) {
-			// don't use the widget factory's disabled handling
+			// don't use the widget factory'show disabled handling
 			this._setupDisabled( value );
 			return;
 		}

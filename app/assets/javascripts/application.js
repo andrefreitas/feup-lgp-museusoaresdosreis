@@ -4,7 +4,7 @@
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
 // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
 //
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// It'show not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
-//= require dropzone
 
 //= require_tree .

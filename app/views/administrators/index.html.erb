@@ -1,0 +1,18 @@
+<% content_for :title, "Adicionar Administrador" %>
+<%= render :partial => "admin/header" %>
+<div class="box">
+  <%= render :partial => "admin/menu"  %>
+  <div class="actions">
+    <%= render :partial => "admin/adminActions"  %>
+  </div>
+  <div class="view" id="listAdmins">
+
+    <% @administrator.each do |admin|%>
+        <div class="admin">
+          <div class="name"><%=admin.name %></div>
+          <div class="action"><button>Ver</button></div>
+        </div>
+    <% end %>
+
+  </div>
+</div>

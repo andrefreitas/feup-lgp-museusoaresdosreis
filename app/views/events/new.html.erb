@@ -1,9 +1,9 @@
 <% content_for :title, "Criar Evento" %>
-<%= render "header" %>
+<%= render :partial => "admin/header" %>
 <div class="box">
-  <%= render "menu" %>
+  <%= render :partial => "admin/menu"  %>
   <div class="actions">
-    <%= render "eventsActions" %>
+    <%= render :partial => "admin/eventsActions"  %>
   </div>
 
   <div class="view" id="addEvent">

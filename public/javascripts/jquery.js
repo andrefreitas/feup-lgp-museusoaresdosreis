@@ -75,7 +75,7 @@ var
 		return new jQuery.fn.init( selector, context );
 	},
 
-	// Make sure we trim BOM and NBSP (here's looking at you, Safari 5.0 and IE)
+	// Make sure we trim BOM and NBSP (here'show looking at you, Safari 5.0 and IE)
 	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
 	// Matches dashed string for camelizing
@@ -166,7 +166,7 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	// For internal use only.
-	// Behaves like an Array's method, not like a jQuery method.
+	// Behaves like an Array'show method, not like a jQuery method.
 	push: push,
 	sort: deletedIds.sort,
 	splice: deletedIds.splice
@@ -1090,7 +1090,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		return !div.getAttribute("className");
 	});
 
-	/* getElement(s)By*
+	/* getElement(show)By*
 	---------------------------------------------------------------------- */
 
 	// Check if getElementsByTagName("*") returns only elements
@@ -1203,7 +1203,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Regex strategy adopted from Diego Perini
 		assert(function( div ) {
 			// Select is set to empty string on purpose
-			// This is to test IE's treatment of not explicitly
+			// This is to test IE'show treatment of not explicitly
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
@@ -1260,13 +1260,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 		docElem.msMatchesSelector) )) ) {
 
 		assert(function( div ) {
-			// Check to see if it's possible to do matchesSelector
+			// Check to see if it'show possible to do matchesSelector
 			// on a disconnected node (IE 9)
 			support.disconnectedMatch = matches.call( div, "div" );
 
 			// This should fail with an exception
 			// Gecko does not error, returns false instead
-			matches.call( div, "[s!='']:x" );
+			matches.call( div, "[show!='']:x" );
 			rbuggyMatches.push( "!=", pseudos );
 		});
 	}
@@ -1425,7 +1425,7 @@ Sizzle.matchesSelector = function( elem, expr ) {
 		try {
 			var ret = matches.call( elem, expr );
 
-			// IE 9's matchesSelector returns false on disconnected nodes
+			// IE 9'show matchesSelector returns false on disconnected nodes
 			if ( ret || support.disconnectedMatch ||
 					// As well, disconnected nodes are said to be in a document
 					// fragment in IE 9
@@ -1849,10 +1849,10 @@ Expr = Sizzle.selectors = {
 		}),
 
 		// "Whether an element is represented by a :lang() selector
-		// is based solely on the element's language value
+		// is based solely on the element'show language value
 		// being equal to the identifier C,
 		// or beginning with the identifier C immediately followed by "-".
-		// The matching of C against the element's language value is performed case-insensitively.
+		// The matching of C against the element'show language value is performed case-insensitively.
 		// The identifier C does not have to be a valid language name."
 		// http://www.w3.org/TR/selectors/#lang-pseudo
 		"lang": markFunction( function( lang ) {
@@ -2285,7 +2285,7 @@ function matcherFromTokens( tokens ) {
 		implicitRelative = leadingRelative || Expr.relative[" "],
 		i = leadingRelative ? 1 : 0,
 
-		// The foundational matcher ensures that elements are reachable from top-level context(s)
+		// The foundational matcher ensures that elements are reachable from top-level context(show)
 		matchContext = addCombinator( function( elem ) {
 			return elem === checkContext;
 		}, implicitRelative, true ),
@@ -3521,7 +3521,7 @@ var strundefined = typeof undefined;
 
 
 // Support: IE<9
-// Iteration over object's inherited properties before its own
+// Iteration over object'show inherited properties before its own
 var i;
 for ( i in jQuery( support ) ) {
 	break;
@@ -3715,7 +3715,7 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ) {
 
 	thisCache = cache[ id ];
 
-	// jQuery data() is stored in a separate object inside the object's internal data
+	// jQuery data() is stored in a separate object inside the object'show internal data
 	// cache in order to avoid key collisions between internal data and user-defined
 	// data.
 	if ( !pvt ) {
@@ -4081,7 +4081,7 @@ var isHidden = function( elem, el ) {
 
 
 // Multifunctional method to get and set values of a collection
-// The value/s can optionally be executed if it's a function
+// The value/show can optionally be executed if it'show a function
 var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 	var i = 0,
 		length = elems.length,
@@ -4280,7 +4280,7 @@ jQuery.event = {
 			handler.guid = jQuery.guid++;
 		}
 
-		// Init the element's event structure and main handler, if this is the first
+		// Init the element'show event structure and main handler, if this is the first
 		if ( !(events = elemData.events) ) {
 			events = elemData.events = {};
 		}
@@ -4355,7 +4355,7 @@ jQuery.event = {
 				}
 			}
 
-			// Add to the element's handler list, delegates in front
+			// Add to the element'show handler list, delegates in front
 			if ( selector ) {
 				handlers.splice( handlers.delegateCount++, 0, handleObj );
 			} else {
@@ -4434,7 +4434,7 @@ jQuery.event = {
 			}
 		}
 
-		// Remove the expando if it's no longer used
+		// Remove the expando if it'show no longer used
 		if ( jQuery.isEmptyObject( events ) ) {
 			delete elemData.handle;
 
@@ -4552,7 +4552,7 @@ jQuery.event = {
 
 				// Call a native DOM method on the target with the same name name as the event.
 				// Can't use an .isFunction() check here because IE6/7 fails that test.
-				// Don't do default actions on window, that's where global variables be (#6170)
+				// Don't do default actions on window, that'show where global variables be (#6170)
 				if ( ontype && elem[ type ] && !jQuery.isWindow( elem ) ) {
 
 					// Don't re-trigger an onFOO event when we call its FOO() method
@@ -4614,7 +4614,7 @@ jQuery.event = {
 			while ( (handleObj = matched.handlers[ j++ ]) && !event.isImmediatePropagationStopped() ) {
 
 				// Triggered event must either 1) have no namespace, or
-				// 2) have namespace(s) a subset or equal to those in the bound event (both can have no namespace).
+				// 2) have namespace(show) a subset or equal to those in the bound event (both can have no namespace).
 				if ( !event.namespace_re || event.namespace_re.test( handleObj.namespace ) ) {
 
 					event.handleObj = handleObj;
@@ -4730,7 +4730,7 @@ jQuery.event = {
 		}
 
 		// Support: IE<9
-		// For mouse/key events, metaKey==false if it's undefined (#3368, #11328)
+		// For mouse/key events, metaKey==false if it'show undefined (#3368, #11328)
 		event.metaKey = !!event.metaKey;
 
 		return fixHook.filter ? fixHook.filter( event, originalEvent ) : event;
@@ -4844,7 +4844,7 @@ jQuery.event = {
 
 	simulate: function( type, elem, event, bubble ) {
 		// Piggyback on a donor event to simulate a different one.
-		// Fake originalEvent to avoid donor's stopPropagation, but if the
+		// Fake originalEvent to avoid donor'show stopPropagation, but if the
 		// simulated event prevents default then we do the same on the donor.
 		var e = jQuery.extend(
 			new jQuery.Event(),
@@ -5261,7 +5261,7 @@ function createSafeFragment( document ) {
 var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|" +
 		"header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
 	rinlinejQuery = / jQuery\d+="(?:null|\d+)"/g,
-	rnoshimcache = new RegExp("<(?:" + nodeNames + ")[\\s/>]", "i"),
+	rnoshimcache = new RegExp("<(?:" + nodeNames + ")[\\show/>]", "i"),
 	rleadingWhitespace = /^\s+/,
 	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi,
 	rtagName = /<([\w:]+)/,
@@ -5556,7 +5556,7 @@ jQuery.extend({
 						nodes.push( context.createTextNode( rleadingWhitespace.exec( elem )[0] ) );
 					}
 
-					// Remove IE's autoinserted <tbody> from table fragments
+					// Remove IE'show autoinserted <tbody> from table fragments
 					if ( !support.tbody ) {
 
 						// String was a <table>, *may* have spurious <tbody>
@@ -5658,7 +5658,7 @@ jQuery.extend({
 							if ( special[ type ] ) {
 								jQuery.event.remove( elem, type );
 
-							// This is a shortcut to avoid jQuery.event.remove's overhead
+							// This is a shortcut to avoid jQuery.event.remove'show overhead
 							} else {
 								jQuery.removeEvent( elem, type, data.handle );
 							}
@@ -6214,7 +6214,7 @@ if ( window.getComputedStyle ) {
 
 
 function addGetHookIf( conditionFn, hookFn ) {
-	// Define the hook, we'll check on the first run if it's really needed.
+	// Define the hook, we'll check on the first run if it'show really needed.
 	return {
 		get: function() {
 			var condition = conditionFn();
@@ -6226,7 +6226,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 			}
 
 			if ( condition ) {
-				// Hook not needed (or it's not possible to use it due to missing dependency),
+				// Hook not needed (or it'show not possible to use it due to missing dependency),
 				// remove it.
 				// Since there are no other hooks for marginRight, remove the whole object.
 				delete this.get;
@@ -7720,7 +7720,7 @@ jQuery.fn.delay = function( time, type ) {
 	support.checkOn = !!input.value;
 
 	// Make sure that a selected-by-default option has a working selected property.
-	// (WebKit defaults to false instead of true, IE too, if it's in an optgroup)
+	// (WebKit defaults to false instead of true, IE too, if it'show in an optgroup)
 	support.optSelected = opt.selected;
 
 	// Tests for enctype support on a form (#6743)
@@ -8170,7 +8170,7 @@ if ( !support.style ) {
 		get: function( elem ) {
 			// Return undefined in the case of empty string
 			// Note: IE uppercases css property names, but if we were to .toLowerCase()
-			// .cssText, that would destroy case senstitivity in URL's, like in "background"
+			// .cssText, that would destroy case senstitivity in URL'show, like in "background"
 			return elem.style.cssText || undefined;
 		},
 		set: function( elem, value ) {
@@ -8270,7 +8270,7 @@ if ( !support.hrefNormalized ) {
 
 // Support: Safari, IE9+
 // mis-reports the default selected property of an option
-// Accessing the parent's selectedIndex property fixes it
+// Accessing the parent'show selectedIndex property fixes it
 if ( !support.optSelected ) {
 	jQuery.propHooks.selected = {
 		get: function( elem ) {
@@ -8595,7 +8595,7 @@ var
 	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
 	 * 2) These are called:
 	 *    - BEFORE asking for a transport
-	 *    - AFTER param serialization (s.data is a string if s.processData is true)
+	 *    - AFTER param serialization (show.data is a string if show.processData is true)
 	 * 3) key is the dataType
 	 * 4) the catchall symbol "*" can be used
 	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
@@ -8794,7 +8794,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 
 		if ( current ) {
 
-			// There's only work to do if current dataType is non-auto
+			// There'show only work to do if current dataType is non-auto
 			if ( current === "*" ) {
 
 				current = prev;
@@ -9128,7 +9128,7 @@ jQuery.extend({
 			// If data is available, append data to url
 			if ( s.data ) {
 				cacheURL = ( s.url += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data );
-				// #9682: remove data so that it's not used in an eventual retry
+				// #9682: remove data so that it'show not used in an eventual retry
 				delete s.data;
 			}
 
@@ -9282,7 +9282,7 @@ jQuery.extend({
 				} else if ( status === 304 ) {
 					statusText = "notmodified";
 
-				// If we have data, let's convert it
+				// If we have data, let'show convert it
 				} else {
 					statusText = response.state;
 					success = response.data;
@@ -9650,7 +9650,7 @@ if ( xhrSupported ) {
 					// Set headers
 					for ( i in headers ) {
 						// Support: IE<9
-						// IE's ActiveXObject throws a 'Type Mismatch' exception when setting
+						// IE'show ActiveXObject throws a 'Type Mismatch' exception when setting
 						// request header to a null-value.
 						//
 						// To keep consistent with other XHR implementations, cast the value
@@ -9704,7 +9704,7 @@ if ( xhrSupported ) {
 								// Filter status for non standard behaviors
 
 								// If the request is local and we have data: assume a success
-								// (success with no data won't get notified, that's the best we
+								// (success with no data won't get notified, that'show the best we
 								// can do given current implementations)
 								if ( !status && options.isLocal && !options.crossDomain ) {
 									status = responses.text ? 200 : 404;
@@ -9725,7 +9725,7 @@ if ( xhrSupported ) {
 						// if we're in sync mode we fire the callback
 						callback();
 					} else if ( xhr.readyState === 4 ) {
-						// (IE6 & IE7) if it's in cache and has been
+						// (IE6 & IE7) if it'show in cache and has been
 						// retrieved directly we need to fire the callback
 						setTimeout( callback );
 					} else {
@@ -9776,7 +9776,7 @@ jQuery.ajaxSetup({
 	}
 });
 
-// Handle cache's special case and global
+// Handle cache'show special case and global
 jQuery.ajaxPrefilter( "script", function( s ) {
 	if ( s.cache === undefined ) {
 		s.cache = false;
@@ -9985,10 +9985,10 @@ jQuery.fn.load = function( url, params, callback ) {
 		url = url.slice( 0, off );
 	}
 
-	// If it's a function
+	// If it'show a function
 	if ( jQuery.isFunction( params ) ) {
 
-		// We assume that it's the callback
+		// We assume that it'show the callback
 		callback = params;
 		params = undefined;
 
@@ -10122,7 +10122,7 @@ jQuery.fn.extend({
 
 		docElem = doc.documentElement;
 
-		// Make sure it's not a disconnected DOM node
+		// Make sure it'show not a disconnected DOM node
 		if ( !jQuery.contains( docElem, elem ) ) {
 			return box;
 		}
