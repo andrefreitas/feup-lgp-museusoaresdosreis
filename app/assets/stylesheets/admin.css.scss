@@ -2,7 +2,7 @@ $wineColor: #6E2528;
 $wineColorLighter: #A77C70;
 $yellowColor: #F8F2D2;
 $redColor1: #83473E;
-$redColor2: #915953;
+$redColor2: #914c50;
 $lightGray: #B2AFAE;
 
 
@@ -105,7 +105,7 @@ body {
 }
 
 .box{
-  width: 500px;
+  width:600px;
   background: white;
   margin: 0 auto;
   margin-top: 100px;
@@ -157,7 +157,7 @@ body {
   }
 
   .view {
-    width: 269px;
+    width: 369px;
     padding: 15px;
     float: right;
 
@@ -228,6 +228,52 @@ body {
 /* Add Event */
 #addEvent {
   textarea {
-    width: 100%;
+    width: 345px;
+    padding: 10px;
+  }
+
+  input {
+    box-sizing: border-box;
+    &.date, &.local {
+      width: 48%;
+      float: left;
+    }
+    &.date {
+      margin-right: 4%;
+    }
+  }
+
+  .locationResults {
+    display: none;
+    width: 175px;
+    overflow: auto;
+    background: $wineColorLighter;
+    position: absolute;
+    margin-left: 192px;
+    margin-top: 45px;
+    border: solid 1px $redColor2;
+
+
+    ul {
+      list-style: none;
+      color: white;
+      padding: 0;
+      margin: 0;
+
+
+    }
+    li{
+      padding: 10px;
+      border-bottom: solid 1px $redColor2;
+      cursor: pointer;
+
+      &:hover {
+        background: $wineColor;
+      }
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
   }
 }

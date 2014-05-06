@@ -11,15 +11,18 @@
 
     </div>
 
-    <input type="date" name="date"/>
-    <input type="text" name="local" placeholder="Localização"/>
-    <textarea rows="10">Introduzir a descrição aqui</textarea>
+    <input type="text" name="date" class="date" id="datepicker" placeholder="Data do evento"/>
+    <input type="text" name="local" placeholder="Localização" id="localInput" class="local"/>
+    <div class="locationResults">
+        <ul>
+        </ul>
+    </div>
+    <textarea rows="10" placeholder="Inserir texto"></textarea><br/>
     Inserir Imagens
     <div class="imagesArea">
       <input type="file" name="image"/>
     </div>
 
-    <button class="neutralButton" id="addImagesButton">Adicionar mais imagens</button>
-    <button class="redButton" id="addEventButton">Criar Evento</button>
+    <button class="redButton" id="addEventButton">Adicionar Evento</button>
   </div>
 </div>

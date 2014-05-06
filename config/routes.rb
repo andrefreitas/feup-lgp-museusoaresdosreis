@@ -14,6 +14,7 @@ Museusoaresreis::Application.routes.draw do
 
   # Events Administration
   get "/addEvent" => "admin#addEvent", as: "admin_addEvent"
+  get "/listLocations" => "admin#listLocations", as: "listLocations"
 
   #Administrator Rest
   get "/admin/create" => "administrator#create"

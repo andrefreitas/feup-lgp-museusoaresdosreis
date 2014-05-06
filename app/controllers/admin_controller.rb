@@ -66,4 +66,15 @@ class AdminController < ApplicationController
     @eventsMenu = "active"
   end
 
+  def listLocations
+    searchTerm = params[:searchTerm]
+    locations = Event.listLocations(searchTerm)
+    respond_to do |format|
+      format .json {
+        render json: locations
+      }
+    end
+  end
+
+
 end

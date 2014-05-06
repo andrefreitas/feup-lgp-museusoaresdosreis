@@ -1,11 +1,22 @@
 
 $(document).ready ->
-  window.images = 0 # Counter for uploading images
   $('#loginButton').click -> loginClick()
   $('#logoutButton').click -> logoutClick()
   $('#addAdminButton').click -> addAdminClick()
   $("#adminPhoto").change -> previewAdminPhoto(this)
   $("#addImagesButton").click -> addImagesClick()
+  $("#localInput").keyup -> localInputWrite(this)
+  $(".locationResults li").click -> locationResultClick(this)
+  $("#datepicker").datepicker({
+    dateFormat: 'dd/mm/yy',
+    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+    nextText: 'Próximo',
+    prevText: 'Anterior'})
+
 
 
 # Events Handlers
@@ -42,17 +53,28 @@ previewImage = (input, where) ->
     reader.onload = (e) ->
       $(where).attr "src", e.target.result
       return
-
     reader.readAsDataURL input.files[0]
   return
 
-# DOM
-@addImagesClick = ->
-  window.images = window.images + 1
-  if window.images < 3
-    $(".imagesArea").append('<input type="file" name="image' + window.images + '"/>')
 
+localInputWrite = (elem) ->
+  $(".locationResults").hide()
+  $(".locationResults ul").html("")
+  searchTerm =  $(elem).val()
+  console.log(searchTerm)
+  if(searchTerm.length > 0)
+    locations = getLocations(searchTerm)
+    if locations.length > 0
+      for location in locations
+        $(".locationResults ul").append("<li>" + location + "</li>")
+      $(".locationResults li").click -> locationResultClick(this)
+      $(".locationResults").show()
+      console.log(locations)
 
+locationResultClick = (elem)->
+  text = $(elem).html()
+  $("#localInput").val(text)
+  $(".locationResults").hide()
 
 # API calls
 
@@ -80,6 +102,13 @@ previewImage = (input, where) ->
   )
   $.ajaxSetup async: true
 
+@getLocations = (searchTerm) ->
+  $.ajaxSetup async: false
+  data = $.getJSON("listLocations.json",
+    searchTerm: searchTerm
+  )
+  $.ajaxSetup async: true
+  return data.responseJSON
 
 # Form Validation
 
