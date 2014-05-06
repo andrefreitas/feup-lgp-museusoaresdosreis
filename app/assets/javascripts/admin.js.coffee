@@ -44,8 +44,8 @@ addAdminClick = ->
       $("#addAdmin button").hide()
       addSuccessNotification("Administrador adicionado!")
 
-previewAdminPhoto = (elem)->
-  previewImage(elem,"#previewAdminPhoto")
+previewPhoto = (input, where)->
+  previewImage(input, where)
 
 previewImage = (input, where) ->
   if input.files and input.files[0]
@@ -61,7 +61,6 @@ localInputWrite = (elem) ->
   $(".locationResults").hide()
   $(".locationResults ul").html("")
   searchTerm =  $(elem).val()
-  console.log(searchTerm)
   if(searchTerm.length > 0)
     locations = getLocations(searchTerm)
     if locations.length > 0
@@ -125,6 +124,47 @@ locationResultClick = (elem)->
     addErrorNotification("Escreva a password!")
     return false
   clearNotifications()
+  return true
+
+imageIsValid = (path) ->
+  /.(png|jpg|jpeg)$/i.test(path)
+
+@validateAddEvent = ->
+  clearNotifications()
+  data = {}
+  data["date"]= $("#datepicker").val()
+  data["text"]= $("#text").val()
+  data["local"] = $("#localInput").val()
+  data["image1"] = $("#image1").val()
+  data["image2"] = $("#image2").val()
+  data["image3"] = $("#image3").val()
+
+  if(data["date"].length is 0)
+    addErrorNotification("Falta a data")
+    return false
+  else if(data["local"].length is 0)
+    addErrorNotification("Falta a localização")
+    return false
+  else if(data["text"].length is 0 )
+    addErrorNotification("Falta o texto")
+    return false
+  else if((data["image1"] + data["image2"] + data["image3"]).length is 0 )
+    addErrorNotification("Adicione pelo menos uma imagem")
+    return false
+
+  if(data["image1"].length > 0 and !imageIsValid(data["image1"]))
+    addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
+    return false
+
+  if(data["image2"].length > 0 and !imageIsValid(data["image2"]))
+    addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
+    return false
+
+  if(data["image3"].length > 0 and !imageIsValid(data["image3"]))
+    addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
+    return false
+
+  console.log(data)
   return true
 
 @addErrorNotification = (message) ->
