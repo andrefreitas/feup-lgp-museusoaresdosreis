@@ -27,11 +27,12 @@ class AdministratorsController < ApplicationController
   def update
     @administrator = Administrator.find(params[:id])
     if(Administrator.where(email: params[:email]).where.not(id: params[:id]).empty?)
-      args = {:name => params[:name], :email => params[:email]}
+      @administrator.name = params[:name]
+      @administrator.email = params[:email]
       if(!params[:password].empty?)
-        args[:password] = params[:password]
+        @administrator.password = params[:password]
       end
-      @administrator.update(args)
+      @administrator.save
       @result = @administrator
     else
       @result = ["emailExists"]

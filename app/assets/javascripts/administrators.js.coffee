@@ -1,6 +1,5 @@
 # Events binding
-
-$(document).ready ->
+$(window).ready ->
   $('#addAdminButton').click -> addAdminClick()
   $('#updateAdminButton').click -> updateAdminClick(this)
 
