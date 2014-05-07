@@ -2,6 +2,7 @@
 $(window).ready ->
   $('#addAdminButton').click -> addAdminClick()
   $('#updateAdminButton').click -> updateAdminClick(this)
+  $('.admin .delete').click -> deleteAdminClick(this)
 
 # Events Handlers
 
@@ -32,6 +33,16 @@ updateAdminClick = (elem) ->
       $("#editAdmin button").hide()
       addSuccessNotification("Administrador atualizado!")
 
+deleteAdminClick = (elem) ->
+  adminDiv = $(elem).parent().parent()
+  adminID = $(adminDiv).attr("id")
+  adminName = $(adminDiv).children(".name").first().html()
+  confirmation = confirm("Pretende mesmo eliminar " + adminName + " ?")
+  if confirmation is true
+    $(adminDiv).fadeOut()
+    deleteAdmin(adminID)
+
+
 # API calls
 
 @addAdmin = (name, email, password) ->
@@ -56,6 +67,13 @@ updateAdminClick = (elem) ->
     async: false
   })
   data.responseJSON
+
+@deleteAdmin = (adminID) ->
+  $.ajax({
+    url: '/administrators/' + adminID,
+    type: 'DELETE',
+    async: false
+  })
 
 
 # Form Validation

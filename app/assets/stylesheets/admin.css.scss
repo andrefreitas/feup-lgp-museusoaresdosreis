@@ -196,7 +196,8 @@ body {
   cursor: pointer;
 }
 
-
+$deleteColor: #CC3333;
+$deleteColorHover: #CC583E;
 /* List Admins */
 .admin{
   font-size: 18px;
@@ -216,14 +217,27 @@ body {
       background: $redColor1;
       border: none;
       color: white;
-      padding: 5px 30px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       cursor: pointer;
+      float: right;
+      width: 80px;
+      margin-right: 10px;
+
+      &.delete{
+        background: $deleteColor;
+
+        &:hover {
+          background: $deleteColorHover;
+        }
+      }
     }
     button:hover {
       background: $redColor2;
     }
   }
 }
+
 
 /* Add Event */
 #addEvent {
