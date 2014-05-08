@@ -9,9 +9,9 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It'show strongly recommended that you check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430185911) do
+ActiveRecord::Schema.define(version: 20140502220429) do
 
   create_table "administrators", force: true do |t|
     t.string   "email"
@@ -37,12 +37,23 @@ ActiveRecord::Schema.define(version: 20140430185911) do
 
   add_index "chronologies", ["application_id"], name: "index_chronologies_on_application_id", using: :btree
 
+  create_table "event_translations", force: true do |t|
+    t.string   "lang"
+    t.string   "title"
+    t.string   "content"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_translations", ["event_id"], name: "index_event_translations_on_event_id", using: :btree
+
   create_table "events", force: true do |t|
+    t.string   "title"
+    t.string   "content"
     t.datetime "date"
-    t.string   "local"
     t.boolean  "published"
-    t.datetime "created_date"
-    t.boolean  "visible"
+    t.boolean  "public"
     t.integer  "chronology_id"
     t.integer  "map_id"
     t.datetime "created_at"
@@ -52,15 +63,22 @@ ActiveRecord::Schema.define(version: 20140430185911) do
   add_index "events", ["chronology_id"], name: "index_events_on_chronology_id", using: :btree
   add_index "events", ["map_id"], name: "index_events_on_map_id", using: :btree
 
-  create_table "fields", force: true do |t|
-    t.string   "key"
-    t.string   "content"
-    t.integer  "translation_id"
+  create_table "images", force: true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "fields", ["translation_id"], name: "index_fields_on_translation_id", using: :btree
+  add_index "images", ["event_id"], name: "index_images_on_event_id", using: :btree
+
+  create_table "languages", force: true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "maps", force: true do |t|
     t.integer  "application_id"
@@ -71,34 +89,12 @@ ActiveRecord::Schema.define(version: 20140430185911) do
   add_index "maps", ["application_id"], name: "index_maps_on_application_id", using: :btree
 
   create_table "puzzles", force: true do |t|
-    t.string   "image"
-    t.integer  "application_id"
+    t.string   "name"
+    t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "puzzles", ["application_id"], name: "index_puzzles_on_application_id", using: :btree
-
-  create_table "resources", force: true do |t|
-    t.string   "filename"
-    t.string   "content"
-    t.integer  "language"
-    t.integer  "duration"
-    t.integer  "event_id"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "resources", ["event_id"], name: "index_resources_on_event_id", using: :btree
-
-  create_table "translations", force: true do |t|
-    t.string   "language"
-    t.integer  "application_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "translations", ["application_id"], name: "index_translations_on_application_id", using: :btree
+  add_index "puzzles", ["image_id"], name: "index_puzzles_on_image_id", using: :btree
 
 end

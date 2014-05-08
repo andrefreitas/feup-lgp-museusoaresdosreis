@@ -1,4 +1,5 @@
 class AdministratorsController < ApplicationController
+  require 'digest/sha1'
   before_action :find , :only => [:update, :destroy, :show, :edit]
   before_action :check_auth, :only => [:new, :create, :update, :edit, :destroy, :index, :show]
 
@@ -30,7 +31,7 @@ class AdministratorsController < ApplicationController
       @administrator.name = params[:name]
       @administrator.email = params[:email]
       if(!params[:password].empty?)
-        @administrator.password = params[:password]
+        @administrator.password = Digest::SHA1.hexdigest(params[:password].to_s)
       end
       @administrator.save
       @result = @administrator
