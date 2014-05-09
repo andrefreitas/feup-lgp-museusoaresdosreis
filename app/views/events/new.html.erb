@@ -8,22 +8,21 @@
 
   <div class="view" id="addEvent">
     <div class="notifications"></div>
-    <form action="addEvent" method="post" onsubmit="return validateAddEvent()">
-      <input type="text" name="date" class="date" id="datepicker" placeholder="Data"/>
-      <input type="text" name="local" placeholder="Localização" id="localInput" class="local"/>
-      <div class="locationResults">
-        <ul>
-        </ul>
-      </div>
-      <textarea rows="10" placeholder="Inserir texto" name="text" id="text"></textarea><br/>
+
+    <form action="/events" method="post" onsubmit="return validateAddEvent()" enctype="multipart/form-data">
+      <input type="text" name="title" id="titleVal" placeholder="Título"/>
+      <input type="text" name="date" id="datepicker" placeholder="Data"/>
+      <textarea rows="10" placeholder="Inserir texto" name="content" id="contentVal"></textarea><br/>
       Inserir Imagens
       <div class="imagesArea">
-        <input type="file" name="image1" id="image1"/>
-        <input type="file" name="image2" id="image2"/>
-        <input type="file" name="image3" id="image3"/>
+        <input type="file" name="image1" id="image1Val"/>
+        <input type="file" name="image2" id="image2Val"/>
+        <input type="file" name="image3" id="image3Val"/>
       </div>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
       <button class="redButton" id="addEventButton">Adicionar Evento</button>
     </form>
+
   </div>
 
 </div>

@@ -6,8 +6,13 @@
     <%= render :partial => "admin/eventsActions"  %>
   </div>
 
-  <div class="view" id="listEvents">
 
+  <div class="view" id="listEvents">
+    <div class="notifications">
+      <% if flash[:notice] %>
+          <div class="success"><%=flash[:notice]%></div>
+      <% end %>
+    </div>I
   </div>
 
 </div>

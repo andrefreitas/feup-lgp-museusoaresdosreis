@@ -1,5 +1,6 @@
 # Events Binding
 $(document).ready ->
+
   $("#datepicker").datepicker({
     dateFormat: 'dd/mm/yy',
     dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
@@ -15,20 +16,20 @@ $(document).ready ->
 @validateAddEvent = ->
   clearNotifications()
   data = {}
+  data["title"]= $("#titleVal").val()
   data["date"]= $("#datepicker").val()
-  data["text"]= $("#text").val()
-  data["local"] = $("#localInput").val()
-  data["image1"] = $("#image1").val()
-  data["image2"] = $("#image2").val()
-  data["image3"] = $("#image3").val()
+  data["content"]= $("#contentVal").val()
+  data["image1"] = $("#image1Val").val()
+  data["image2"] = $("#image2Val").val()
+  data["image3"] = $("#image3Val").val()
 
-  if(data["date"].length is 0)
+  if(data["title"].length is 0)
+    addErrorNotification("Falta o título")
+    return false
+  else if(data["date"].length is 0)
     addErrorNotification("Falta a data")
     return false
-  else if(data["local"].length is 0)
-    addErrorNotification("Falta a localização")
-    return false
-  else if(data["text"].length is 0 )
+  else if(data["content"].length is 0 )
     addErrorNotification("Falta o texto")
     return false
   else if((data["image1"] + data["image2"] + data["image3"]).length is 0 )
