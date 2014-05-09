@@ -1,3 +1,53 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$wineColor: #6E2528;
+$wineColorLighter: #A77C70;
+$yellowColor: #F8F2D2;
+$redColor1: #83473E;
+$redColor2: #914c50;
+$lightGray: #B2AFAE;
+$deleteColor: #CC3333;
+$deleteColorHover: #CC583E;
+
+
+#listEvents {
+
+  overflow: auto;
+
+  .event {
+    font-size: 18px;
+    color: #282828;
+    padding: 15px 0;
+    border-bottom: solid 1px #9B9796;
+    overflow: auto;
+
+    .action{
+      float: right;
+
+      button {
+        background: $redColor1;
+        border: none;
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        cursor: pointer;
+        float: right;
+        width: 80px;
+        margin-right: 10px;
+
+        &.delete{
+          background: $deleteColor;
+
+          &:hover {
+            background: $deleteColorHover;
+          }
+        }
+      }
+      button:hover {
+        background: $redColor2;
+      }
+    }
+  }
+}

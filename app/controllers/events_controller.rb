@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
   before_action :check_auth, :only => [:new, :create, :update, :edit, :destroy, :index, :show]
+  before_action :find , :only => [:update, :destroy, :show, :edit]
+
+  def find
+    @event = Event.find(params[:id])
+  end
 
   def new
   end
@@ -15,22 +20,20 @@ class EventsController < ApplicationController
     @event = Event.create(title: title, date: date, content: content)
 
     if(image1)
-      @image = Image.create(name: image1.original_filename, path: image1.original_filename)
+      @image = @event.images.create(name: image1.original_filename, path: image1.original_filename)
       Image.uploadFile(image1)
-      @image.event_id = @event.id
     end
 
     if(image2)
-      @image = Image.create(name: image2.original_filename, path: image2.original_filename)
+      @image = @event.images.create(name: image2.original_filename, path: image2.original_filename)
       Image.uploadFile(image2)
-      @image.event_id = @event.id
     end
 
     if(image3)
-      @image = Image.create(name: image3.original_filename, path: image3.original_filename)
+      @image = @event.images.create(name: image3.original_filename, path: image3.original_filename)
       Image.uploadFile(image3)
-      @image.event_id = @event.id
     end
+
     redirect_to(events_path, :notice => "Evento criado com sucesso!")
   end
 
@@ -41,9 +44,16 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    eventID = @event.id
+    images = Image.where(:event_id => eventID)
+    images.each do |image|
+      image.deleteFile()
+    end
+    @event.destroy
   end
 
   def index
+    @events = Event.all
   end
 
   def show

@@ -13,6 +13,15 @@
           <div class="success"><%=flash[:notice]%></div>
       <% end %>
     </div>
+    <% @events.each do |event|%>
+    <div class="event" id="<%=event.id %>">
+     <%=truncate(event.title, :length => 20) %>
+      <div class="action">
+        <button class="delete">Eliminar</button>
+        <a href="<%= edit_event_path(event.id)%>"><button>Ver</button></a>
+      </div>
+    </div>
+    <% end %>
   </div>
 
 </div>

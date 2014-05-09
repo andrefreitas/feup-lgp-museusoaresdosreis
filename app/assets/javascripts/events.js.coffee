@@ -11,6 +11,8 @@ $(document).ready ->
     nextText: 'Próximo',
     prevText: 'Anterior'})
 
+  $('.event .delete').click -> deleteEventClick(this)
+
 
 # Form Validations
 @validateAddEvent = ->
@@ -53,3 +55,18 @@ $(document).ready ->
 
 imageIsValid = (path) ->
   /.(png|jpg|jpeg)$/i.test(path)
+
+deleteEventClick = (elem) ->
+  eventDiv = $(elem).parent().parent()
+  eventID = $(eventDiv).attr("id")
+  confirmation = confirm("Pretende mesmo eliminar este evento?")
+  if confirmation is true
+    $(eventDiv).fadeOut()
+    deleteEvent(eventID)
+
+deleteEvent = (eventID) ->
+  $.ajax({
+    url: '/events/' + eventID,
+    type: 'DELETE',
+    async: false
+  })

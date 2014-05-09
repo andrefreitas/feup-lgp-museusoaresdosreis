@@ -10,4 +10,9 @@ class Image < ActiveRecord::Base
     File.open(path, "wb") { |f| f.write(upload.read) }
   end
 
+  def deleteFile
+    filePath = "public/data/" + path
+    File.delete(filePath) if File.exist?(filePath)
+  end
+
 end

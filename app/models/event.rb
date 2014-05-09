@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :chronology
   belongs_to :map
-  has_many :image
+  has_many :images, dependent: :destroy
   has_many :event_translation
   validates :title, presence:true
   validates :content, presence:true

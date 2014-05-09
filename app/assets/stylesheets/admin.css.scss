@@ -4,7 +4,8 @@ $yellowColor: #F8F2D2;
 $redColor1: #83473E;
 $redColor2: #914c50;
 $lightGray: #B2AFAE;
-
+$deleteColor: #CC3333;
+$deleteColorHover: #CC583E;
 
 body {
 	margin: 0;
@@ -196,8 +197,7 @@ body {
   cursor: pointer;
 }
 
-$deleteColor: #CC3333;
-$deleteColorHover: #CC583E;
+
 /* List Admins */
 .admin{
   font-size: 18px;
