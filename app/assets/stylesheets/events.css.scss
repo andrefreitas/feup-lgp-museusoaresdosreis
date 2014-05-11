@@ -51,3 +51,40 @@ $deleteColorHover: #CC583E;
     }
   }
 }
+
+.imagesArea {
+
+  .image-div {
+    width: 32.2%;
+    display: inline-block;
+    border: 1px solid #9B9796;
+
+    .upload {
+      width: 67px;
+      color: transparent;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 0px;
+      padding: 0px;
+      border: none;
+    }
+
+    img{
+      padding-top: 5px;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+    }
+
+    label{
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+      text-align: center;
+      padding-bottom: 3px;
+    }
+  }
+
+}
+

@@ -12,6 +12,9 @@ $(document).ready ->
     prevText: 'Anterior'})
 
   $('.event .delete').click -> deleteEventClick(this)
+  $("#image1").change -> readImage1 this
+  $("#image2").change -> readImage2 this
+  $("#image3").change -> readImage3 this
 
 
 # Form Validations
@@ -70,3 +73,33 @@ deleteEvent = (eventID) ->
     type: 'DELETE',
     async: false
   })
+
+@readImage1 = (input) ->
+  if input.files and input.files[0]
+    reader = new FileReader()
+    reader.onload = (e) ->
+      $("#preview1").attr "src", e.target.result
+      return
+    $("#name-img1").text(input.files[0].name)
+    reader.readAsDataURL input.files[0]
+  return
+
+@readImage2 = (input) ->
+  if input.files and input.files[0]
+    reader = new FileReader()
+    reader.onload = (e) ->
+      $("#preview2").attr "src", e.target.result
+      return
+    $("#name-img2").text(input.files[0].name)
+    reader.readAsDataURL input.files[0]
+  return
+
+@readImage3 = (input) ->
+  if input.files and input.files[0]
+    reader = new FileReader()
+    reader.onload = (e) ->
+      $("#preview3").attr "src", e.target.result
+      return
+    $("#name-img3").text(input.files[0].name)
+    reader.readAsDataURL input.files[0]
+  return

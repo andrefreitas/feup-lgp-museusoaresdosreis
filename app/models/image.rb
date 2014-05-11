@@ -11,8 +11,7 @@ class Image < ActiveRecord::Base
   end
 
   def deleteFile
-    filePath = "public/data/" + path
-    File.delete(filePath) if File.exist?(filePath)
+    File.delete(self.path) if File.exist?(self.path)
   end
 
 end
