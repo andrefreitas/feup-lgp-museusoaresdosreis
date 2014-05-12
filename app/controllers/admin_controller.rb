@@ -36,4 +36,32 @@ class AdminController < ApplicationController
     end
   end
 
+  def forgotPassword
+    if(session[:administrator])
+      redirect_to(events_path)
+    end
+ end
+  def generatePassword
+    if(session[:administrator])
+      redirect_to(events_path)
+    end
+    @user = Administrator.where(email: params[:email]).first
+    user = Administrator.where(email: params[:email]).first
+    
+    respond_to do |format|
+      format.json {
+	if(@user == nil)
+          render json: {"result"=> "invalid"}
+        else
+          render json: {"result"=> "ok"}
+          tempPass = rand(36**8).to_s(36)
+          @user.password = Digest::SHA1.hexdigest(tempPass)
+          @user.save
+          MuseuMailer.restorePassword(@user, tempPass).deliver
+        end
+
+      }
+   end
+   end   
+
 end

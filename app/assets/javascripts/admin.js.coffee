@@ -3,6 +3,7 @@
 $(document).ready ->
   $('#loginButton').click -> loginClick()
   $('#logoutButton').click -> logoutClick()
+  $('#generatePasswordButton').click -> generatePasswordClick()
 
 # Events Handlers
 
@@ -18,6 +19,12 @@ loginClick = ->
 logoutClick = ->
   logout()
   location.reload()
+
+generatePasswordClick = ->
+  email = $('#emailForgot').val()
+  generatePassword(email)
+  
+  
 
 # API calls
 
@@ -36,6 +43,16 @@ logoutClick = ->
   $.ajaxSetup async: true
   $.parseJSON(data["responseText"])["result"] is "ok"
 
+@generatePassword = (email) ->
+  $.ajaxSetup async: false
+  data = $.getJSON("/generatePassword.json", email: email)
+  $.ajaxSetup async: true
+  jsonVal = $.parseJSON(data["responseText"])
+  if(jsonVal['result'] is "invalid")
+     addErrorNotification("Email invalido")
+  else
+     addSuccessNotification("Email foi Enviado")
+  $.parseJSON(data["responseText"])["result"] is "ok"
 
 # Form Validation
 

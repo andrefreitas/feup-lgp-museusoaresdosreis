@@ -26,4 +26,20 @@ Museusoaresreis::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  require 'tlsmail'
+      Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+      ActionMailer::Base.delivery_method = :smtp
+      ActionMailer::Base.perform_deliveries = true
+      ActionMailer::Base.raise_delivery_errors = true
+      ActionMailer::Base.smtp_settings = {
+          :address =>  "smtp.gmail.com",
+          :port =>  "587",
+          :domain =>  "gmail.com",
+          :enable_starttls_auto =>  true,
+          :authentication => :login,
+          :user_name => "museutestes@gmail.com",
+          :password => "museu123"
+      }
+
 end
