@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502220429) do
+ActiveRecord::Schema.define(version: 20140513193347) do
 
   create_table "administrators", force: true do |t|
     t.string   "email"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140502220429) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hashcode"
   end
 
   add_index "images", ["event_id"], name: "index_images_on_event_id", using: :btree
