@@ -304,3 +304,70 @@ body {
     }
   }
 }
+
+/* List Languages */
+.lang{
+  font-size: 18px;
+  color: #282828;
+  padding: 15px 0;
+  border-bottom: solid 1px #9B9796;
+  overflow: auto;
+
+  .name {
+    float: left;
+  }
+
+  .action{
+    float: right;
+
+    button {
+      background: $redColor1;
+      border: none;
+      color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      cursor: pointer;
+      float: right;
+      width: 80px;
+      margin-right: 10px;
+
+      &.delete{
+        background: $deleteColor;
+
+        &:hover {
+          background: $deleteColorHover;
+        }
+      }
+    }
+    button:hover {
+      background: $redColor2;
+    }
+  }
+}
+
+#addLanguage {
+  width: 369px;
+  padding: 15px;
+  float: right;
+
+  input {
+    font-size: 15px;
+    padding: 10px 20px 10px 20px;
+    border: solid 1px #9B9796;
+    box-sizing:border-box;
+    margin-bottom: 10px;
+
+    &#nameVal{
+      width: 73%;
+    }
+    &#codeVal{
+      width: 25%;
+    }
+
+  }
+
+  button {
+    width: 100%;
+  }
+
+}
