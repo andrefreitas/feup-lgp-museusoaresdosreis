@@ -11,4 +11,8 @@ Museusoaresreis::Application.routes.draw do
 
   # Events
   resources :events
+
+  # Languages
+  resources :languages
+
 end

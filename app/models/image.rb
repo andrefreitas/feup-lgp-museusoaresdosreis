@@ -3,10 +3,9 @@ class Image < ActiveRecord::Base
   has_one :puzzle
 
   # Exemplo tirado do outro site. Ainda se tem de ver como funciona.
-  def self.uploadFile(upload)
-    name =  upload.original_filename
+  def self.uploadFile(upload,hash)
     directory = "public/data"
-    path = File.join(directory, name)
+    path = File.join(directory, hash)
     File.open(path, "wb") { |f| f.write(upload.read) }
   end
 

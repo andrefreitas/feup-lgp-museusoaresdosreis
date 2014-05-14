@@ -1,0 +1,17 @@
+<% content_for :title, "Adicionar Idioma" %>
+<%= render :partial => "admin/header" %>
+<div class="box">
+  <%= render :partial => "admin/menu"  %>
+  <div class="actions">
+    <%= render :partial => "admin/adminActions"  %>
+  </div>
+  <div class="view" id="addLanguage">
+
+    <div class="notifications">
+    </div>
+    <input type="text" id="nameVal" placeholder="Idioma"/>
+    <input type="text" id="codeVal" placeholder="Código"/><br/>
+
+    <button class="redButton" id="addLanguageButton">Adicionar Idioma</button>
+  </div>
+</div>

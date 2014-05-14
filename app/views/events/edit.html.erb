@@ -1,4 +1,4 @@
-<% content_for :title, "Criar Evento" %>
+<% content_for :title, "Atualizar Evento" %>
 <%= render :partial => "admin/header" %>
 <div class="box">
   <%= render :partial => "admin/menu"  %>
@@ -16,7 +16,7 @@
       <div class="imagesArea">
         <div class="image-div">
           <%if @event.images[0]%>
-              <img src="/data/<%=@event.images[0].name%>" alt="<%=@event.images[0].name%>" id="preview1" width="100" height="100">
+              <img src="/data/<%=@event.images[0].hashcode%>" alt="<%=@event.images[0].name%>" id="preview1" width="100" height="100">
               <br><label id="name-img1"><%=@event.images[0].name%></label>
           <%else%>
               <%=image_tag("default-avatar.png", alt: "default image", id: "preview1", width: 100, height: 100)%>
@@ -27,7 +27,7 @@
 
         <div class="image-div">
           <%if @event.images[1]%>
-              <img src="/data/<%=@event.images[1].name%>" alt="<%=@event.images[1].name%>" id="preview2" width="100" height="100">
+              <img src="/data/<%=@event.images[1].hashcode%>" alt="<%=@event.images[1].name%>" id="preview2" width="100" height="100">
               <br><label id="name-img2"><%=@event.images[1].name%></label>
           <%else%>
               <%=image_tag("default-avatar.png", alt: "default image", id: "preview2", width: 100, height: 100) %>
@@ -39,7 +39,7 @@
         <div class="image-div">
 
           <%if @event.images[2]%>
-              <img src="/data/<%=@event.images[2].name%>" alt="<%=@event.images[2].name%>" id="preview3" width="100" height="100">
+              <img src="/data/<%=@event.images[2].hashcode%>" alt="<%=@event.images[2].name%>" id="preview3" width="100" height="100">
               <br><label id="name-img3"><%=@event.images[2].name%></label>
           <%else%>
               <%=image_tag("default-avatar.png", alt: "default image", id: "preview3", width: 100, height: 100) %>

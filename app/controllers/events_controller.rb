@@ -21,21 +21,24 @@ class EventsController < ApplicationController
     @event = Event.create(title: title, date: date, content: content)
 
     if(image1)
-      path = File.join(directory, image1.original_filename)
-      @image = @event.images.create(name: image1.original_filename, path: path)
-      Image.uploadFile(image1)
+      hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image1.original_filename)
+      path = File.join(directory, hash)
+      @image = @event.images.create(name: image1.original_filename, path: path, hashcode: hash)
+      Image.uploadFile(image1,hash)
     end
 
     if(image2)
-      path = File.join(directory, image2.original_filename)
-      @image = @event.images.create(name: image2.original_filename, path: path)
-      Image.uploadFile(image2)
+      hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image2.original_filename)
+      path = File.join(directory, hash)
+      @image = @event.images.create(name: image2.original_filename, path: path, hashcode: hash)
+      Image.uploadFile(image2,hash)
     end
 
     if(image3)
-      path = File.join(directory, image3.original_filename)
-      @image = @event.images.create(name: image3.original_filename, path: path)
-      Image.uploadFile(image3)
+      hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image3.original_filename)
+      path = File.join(directory, hash)
+      @image = @event.images.create(name: image3.original_filename, path: path, hashcode: hash)
+      Image.uploadFile(image3,hash)
     end
 
     redirect_to(events_path, :notice => "Evento criado com sucesso!")
@@ -62,27 +65,30 @@ class EventsController < ApplicationController
         @image1.deleteFile()
         @image1.destroy
       end
-      path = File.join(directory, image1.original_filename)
-      @image = @event.images.create(name: image1.original_filename, path: path)
-      Image.uploadFile(image1)
+      hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image1.original_filename)
+      path = File.join(directory, hash)
+      @image = @event.images.create(name: image1.original_filename, path: path, hashcode: hash)
+      Image.uploadFile(image1,hash)
     end
     if image2
       if @image2
         @image2.deleteFile()
         @image2.destroy
       end
-      path = File.join(directory, image2.original_filename)
-      @image = @event.images.create(name: image2.original_filename, path: path)
-      Image.uploadFile(image2)
+      hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image2.original_filename)
+      path = File.join(directory, hash)
+      @image = @event.images.create(name: image2.original_filename, path: path, hashcode: hash)
+      Image.uploadFile(image2,hash)
     end
     if image3
       if @image3
         @image3.deleteFile()
         @image3.destroy
       end
-      path = File.join(directory, image3.original_filename)
-      @image = @event.images.create(name: image3.original_filename, path: path)
-      Image.uploadFile(image3)
+      hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image3.original_filename)
+      path = File.join(directory, hash)
+      @image = @event.images.create(name: image3.original_filename, path: path, hashcode: hash)
+      Image.uploadFile(image3,hash)
     end
     redirect_to(events_path, :notice => "Evento atualizado com sucesso!")
   end
