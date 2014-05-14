@@ -17,3 +17,6 @@
 
 # IDEA
 .idea/*
+
+# Data
+public/data/*
