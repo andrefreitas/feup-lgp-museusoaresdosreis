@@ -9,45 +9,62 @@
   <div class="view" id="addEvent">
     <div class="notifications"></div>
 
-    <form action="/events/<%=@event.id%>" method="post" onsubmit="return validateAddEvent()" enctype="multipart/form-data">
+    <form action="/events/<%=@event.id%>" method="post" onsubmit="return validateEditEvent()" enctype="multipart/form-data">
       <input type="text" name="title" id="titleVal" placeholder="Título" value="<%=@event.title%>" />
       <input type="text" name="date" id="datepicker" placeholder="Data" value="<%=@event.date.to_date%>"/>
       <textarea rows="10" placeholder="Inserir texto" name="content" id="contentVal"><%=@event.content%></textarea><br/>
-      <div class="imagesArea">
+      <div class="imagesArea-new">
         <div class="image-div">
+          <div class="left">
           <%if @event.images[0]%>
-              <img src="/data/<%=@event.images[0].hashcode%>" alt="<%=@event.images[0].name%>" id="preview1" width="100" height="100">
-              <br><label id="name-img1"><%=@event.images[0].name%></label>
+              <img src="/data/<%=@event.images[0].hashcode%>" alt="<%=@event.images[0].name%>" id="preview1" width="74" height="78">
           <%else%>
-              <%=image_tag("default-avatar.png", alt: "default image", id: "preview1", width: 100, height: 100)%>
-              <br><label id="name-img1">Sem imagem</label>
+              <%=image_tag("default-avatar.png", alt: "default image", id: "preview1", width: 74, height: 78)%>
           <%end%>
-          <input type="file" name="image1" class="upload" id="image1" />
+          <input type="file" name="image1" class="upload" id="image1Val" />
+          </div>
+          <div class="right">
+            <%if @event.images[0]%>
+                <textarea rows="5" placeholder="Legenda" name="caption1" class="captionText" id="caption1Val"><%=@event.images[0].caption%></textarea>
+            <%else%>
+                <textarea rows="5" placeholder="Legenda" name="caption1" class="captionText" id="caption1Val"></textarea>
+            <%end%>
+          </div>
         </div>
-
         <div class="image-div">
+          <div class="left">
           <%if @event.images[1]%>
-              <img src="/data/<%=@event.images[1].hashcode%>" alt="<%=@event.images[1].name%>" id="preview2" width="100" height="100">
-              <br><label id="name-img2"><%=@event.images[1].name%></label>
+              <img src="/data/<%=@event.images[1].hashcode%>" alt="<%=@event.images[1].name%>" id="preview2" width="74" height="78">
           <%else%>
-              <%=image_tag("default-avatar.png", alt: "default image", id: "preview2", width: 100, height: 100) %>
-              <br><label id="name-img2">Sem imagem</label>
+              <%=image_tag("default-avatar.png", alt: "default image", id: "preview2", width: 74, height: 78) %>
           <%end%>
-          <input type="file" name="image2" class="upload" id="image2"/>
+          <input type="file" name="image2" class="upload" id="image2Val"/>
+          </div>
+        <div class="right">
+          <%if @event.images[1]%>
+              <textarea rows="5" placeholder="Legenda" name="caption2" class="captionText" id="caption2Val"><%=@event.images[1].caption%></textarea>
+          <%else%>
+              <textarea rows="5" placeholder="Legenda" name="caption2" class="captionText" id="caption2Val"></textarea>
+          <%end%>
         </div>
-
+        </div>
         <div class="image-div">
-
+          <div class="left">
           <%if @event.images[2]%>
-              <img src="/data/<%=@event.images[2].hashcode%>" alt="<%=@event.images[2].name%>" id="preview3" width="100" height="100">
-              <br><label id="name-img3"><%=@event.images[2].name%></label>
+              <img src="/data/<%=@event.images[2].hashcode%>" alt="<%=@event.images[2].name%>" id="preview3" width="74" height="78">
           <%else%>
-              <%=image_tag("default-avatar.png", alt: "default image", id: "preview3", width: 100, height: 100) %>
-              <br><label id="name-img3" >Sem imagem</label>
+              <%=image_tag("default-avatar.png", alt: "default image", id: "preview3", width: 74, height: 78) %>
           <%end%>
-          <input type="file" name="image3" class="upload" id="image3" />
+          <input type="file" name="image3" class="upload" id="image3Val" />
         </div>
-
+          <div class="right">
+            <%if @event.images[2]%>
+                <textarea rows="5" placeholder="Legenda" name="caption3" class="captionText" id="caption3Val"><%=@event.images[2].caption%></textarea>
+            <%else%>
+                <textarea rows="5" placeholder="Legenda" name="caption3" class="captionText" id="caption3Val"></textarea>
+            <%end%>
+          </div>
+        </div>
       </div>
       <input name="_method" type="hidden" value="patch" />
       <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
