@@ -243,9 +243,10 @@ body {
 
 /* Add Event */
 #addEvent {
-  textarea {
+  #contentVal {
     width: 345px;
     padding: 10px;
+    margin-bottom: 8px;
   }
 
   input {
