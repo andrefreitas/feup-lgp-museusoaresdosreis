@@ -1,4 +1,13 @@
 <div class="menu">
-  <a href="<%= administrators_path %>"><div class="option">Gerir Administradores</div></a>
-  <a href="<%= events_path %>"><div class="option">Gerir Eventos</div></a>
+  <%
+    adminMenu = ""
+    eventsMenu = ""
+    if params[:controller] == "events"
+        eventsMenu = "active"
+    else
+        adminMenu = "active"
+    end
+  %>
+  <a href="<%= administrators_path %>"><div class="option <%= adminMenu%>">Gerir Administradores</div></a>
+  <a href="<%= events_path %>"><div class="option <%= eventsMenu %>">Gerir Eventos</div></a>
 </div>

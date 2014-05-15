@@ -131,10 +131,11 @@ body {
   }
 
   .actions {
+    display:table-cell;
     background: #FAF1D4;
     width: 200px;
-    height: 450px;
-    float: left;
+    vertical-align: top;
+
     border-right: solid 1px #231F20;
     ul {
       padding: 0;
@@ -158,9 +159,10 @@ body {
   }
 
   .view {
+    display:table-cell;
     width: 369px;
     padding: 15px;
-    float: right;
+    vertical-align: top;
 
     input {
       font-size: 15px;
@@ -346,9 +348,6 @@ body {
 }
 
 #addLanguage {
-  width: 369px;
-  padding: 15px;
-  float: right;
 
   input {
     font-size: 15px;
