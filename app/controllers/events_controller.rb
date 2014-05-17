@@ -124,7 +124,10 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    respond_to do |format|
+      format.json{render :json => Event.all.map{|e| {:event => e, :images => e.images}}}
+      format.html{ @events = Event.all}
+    end
   end
 
   def show
