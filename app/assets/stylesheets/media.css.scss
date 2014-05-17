@@ -80,7 +80,6 @@ body {
 
     img {
       height: 100%;
-      width: 50%;
       width: auto;
       float: left;
     }
@@ -91,7 +90,6 @@ body {
     font-size: 18px;
     font-family: "Georgia";
     color: white;
-
     vertical-align: top;
 
   }
@@ -125,5 +123,11 @@ body {
 @media screen and (max-width: 1124px){
   #modal {
     height: 50%;
+  }
+}
+
+@media screen and (max-width:800px){
+  #modal {
+
   }
 }
