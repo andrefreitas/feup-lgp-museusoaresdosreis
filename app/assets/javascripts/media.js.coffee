@@ -33,7 +33,7 @@ $(document).ready ->
   $.getJSON("/getDates.json")["responseJSON"]
 
 @getEvents = ->
-  $.getJSON("/events.json")["responseJSON"]
+  $.getJSON("/getEvents.json")["responseJSON"]
 
 @getImage = (id) ->
   $.getJSON("/getImage.json", id: id)["responseJSON"]

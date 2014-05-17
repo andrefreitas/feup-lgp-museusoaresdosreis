@@ -16,4 +16,10 @@ class MediaController < ApplicationController
       format.json{render :json => Image.find(imageID)}
     end
   end
+
+  def getEvents
+    respond_to do |format|
+      format.json{render :json => Event.all.map{|e| {:event => e, :images => e.images}}}
+    end
+  end
 end
