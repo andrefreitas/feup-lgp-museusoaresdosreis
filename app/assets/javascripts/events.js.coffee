@@ -1,16 +1,6 @@
 # Events Binding
 $(document).ready ->
 
-  $("#datepicker").datepicker({
-    dateFormat: 'dd/mm/yy',
-    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-    nextText: 'Próximo',
-    prevText: 'Anterior'})
-
   $('.event .delete').click -> deleteEventClick(this)
   $("#image1").change -> readImage1 this
   $("#image2").change -> readImage2 this
@@ -25,7 +15,7 @@ $(document).ready ->
   clearNotifications()
   data = {}
   data["title"]= $("#titleVal").val()
-  data["date"]= $("#datepicker").val()
+  data["date"]= $("#dateVal").val()
   data["content"]= $("#contentVal").val()
   data["image1"] = $("#image1Val").val()
   data["image2"] = $("#image2Val").val()
@@ -78,7 +68,7 @@ $(document).ready ->
   clearNotifications()
   data = {}
   data["title"]= $("#titleVal").val()
-  data["date"]= $("#datepicker").val()
+  data["date"]= $("#dateVal").val()
   data["content"]= $("#contentVal").val()
   data["image1"] = $("#image1Val").val()
   data["image2"] = $("#image2Val").val()

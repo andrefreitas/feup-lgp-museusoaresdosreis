@@ -12,7 +12,14 @@ Museusoaresreis::Application.routes.draw do
   # Events
   resources :events
 
+
   # Languages
   resources :languages
+
+  # Root
+  root "media#index"
+
+  #Media
+  get "/getDates" => "media#getDates"
 
 end
