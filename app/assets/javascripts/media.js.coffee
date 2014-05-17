@@ -11,6 +11,7 @@ $(document).ready ->
 @loadDates = ->
   dates = getDates().sort()
   for date in dates
+    timelineWidthAdd(40)
     addDate(date)
 
 @loadEvents = ->
@@ -19,7 +20,7 @@ $(document).ready ->
     date = event["event"]["date"]
     eventID = event["event"]["id"]
     images = event["images"]
-    timelineWidthAdd(40)
+
     for image in images
       path = image["path"].replace "public/" , ""
       imageID = image["id"]
