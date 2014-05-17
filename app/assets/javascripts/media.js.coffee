@@ -6,6 +6,8 @@ $(document).ready ->
   $(".timeline").width(0)
   loadDates()
   loadEvents()
+  bindImagesClick()
+  $(".close").click -> hideModal("#modal")
 
 
 @loadDates = ->
@@ -33,6 +35,9 @@ $(document).ready ->
 @getEvents = ->
   $.getJSON("/events.json")["responseJSON"]
 
+@getImage = (id) ->
+  $.getJSON("/getImage.json", id: id)["responseJSON"]
+
 @addDate = (date) ->
   html  = "<div id='#{date}' class='year'>"
   html += "<div class='navigation'> #{date}</div>"
@@ -41,12 +46,31 @@ $(document).ready ->
   $(".timeline").append(html)
 
 @addImage = (date, path, eventID, imageID) ->
-  html = "<img src='#{path}' eventID='#{eventID} id='#{imageID}'>"
+  html = "<img src='#{path}' eventID='#{eventID}' imageID='#{imageID}'>"
   $("\##{date} .images").append(html)
-  oldWidth = $(".timeline").width()
   timelineWidthAdd(270)
-  console.log(oldWidth)
 
 @timelineWidthAdd = (width) ->
   oldWidth = $(".timeline").width()
   $(".timeline").width(oldWidth + width)
+
+@bindImagesClick = ->
+  $(".images img").click -> imageClick(this)
+
+@imageClick = (elem) ->
+  imageID = $(elem).attr("imageID")
+  image = getImage(imageID)
+  description = image["caption"]
+  path = image["path"].replace "public/" , ""
+  console.log(image)
+  $("#modal .description").html(description)
+  $("#modal img.picture").attr("src", path)
+  showModal("#modal")
+
+@showModal = (elem) ->
+  $("html").append("<div class='block'></div>")
+  $(elem).fadeIn()
+
+@hideModal = (elem) ->
+  $(elem).fadeOut()
+  $(".block").remove()

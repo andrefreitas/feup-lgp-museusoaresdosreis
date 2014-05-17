@@ -9,4 +9,11 @@ class MediaController < ApplicationController
       format.json{render :json => @dates}
     end
   end
+
+  def getImage
+    imageID = params[:id]
+    respond_to do |format|
+      format.json{render :json => Image.find(imageID)}
+    end
+  end
 end
