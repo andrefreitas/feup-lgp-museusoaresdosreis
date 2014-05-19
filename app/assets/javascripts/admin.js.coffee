@@ -3,6 +3,7 @@
 $(document).ready ->
   $('#loginButton').click -> loginClick()
   $('#logoutButton').click -> logoutClick()
+  $('#forgotPasswordButton').click -> generatePasswordClick()
   $('#generatePasswordButton').click -> generatePasswordClick()
 
 # Events Handlers
@@ -21,7 +22,13 @@ logoutClick = ->
   location.reload()
 
 generatePasswordClick = ->
-  email = $('#emailForgot').val()
+  email = $('#emailVal').val()
+  if(email.length is 0)
+    addErrorNotification("Escreva o email!")
+    return false
+  else if(!emailIsValid(email))
+    addErrorNotification("Email inválido!")
+    return false
   generatePassword(email)
   
   
