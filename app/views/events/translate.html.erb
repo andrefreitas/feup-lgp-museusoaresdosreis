@@ -1,0 +1,31 @@
+<% content_for :title, "Atualizar Evento" %>
+<%= render :partial => "admin/header" %>
+<div class="box">
+  <%= render :partial => "admin/menu"  %>
+  <div class="actions">
+    <%= render :partial => "admin/eventsActions"  %>
+    <li><a href="/translate">Traduzir</a></li>
+  </div>
+
+  <div class="view" id="addEvent">
+    <div class="notifications"></div>
+    <form action="/events/<%=@event.id%>" method="post" onsubmit="return validateEditEvent()" enctype="multipart/form-data">
+      <select>
+	  <option value="eng">English</option>
+	  <option value="eng">Francois</option>
+      </select></br>
+      <input type="text" name="title" id="titleVal" placeholder="Título" value="<%=@event.title%>" readonly />
+      <input type="text" name="translatedTitle" id="translatedTitleVal" placeholder="Traducao do Título" value="" />
+      <input type="text" name="date" id="dateVal" placeholder="Data" value="<%=@event.date%>" readonly/>
+         
+	 <textarea  rows="10" placeholder="Inserir texto" name="content" id="originalContentVal" readonly><%=@event.content%></textarea>
+	 <textarea rows="10" placeholder="Traduza aqui o texto" name="translatedContent" id="translatedContentVal"></textarea></br>
+      
+      <input name="_method" type="hidden" value="patch" />
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+      <button class="redButton" id="addEventButton">Traduzir Evento</button>
+    </form>
+
+  </div>
+
+</div>

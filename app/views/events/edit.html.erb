@@ -4,6 +4,7 @@
   <%= render :partial => "admin/menu"  %>
   <div class="actions">
     <%= render :partial => "admin/eventsActions"  %>
+    <li><a href="/events/<%=@event.id%>/translate">Traduzir</a></li>
   </div>
 
   <div class="view" id="addEvent">

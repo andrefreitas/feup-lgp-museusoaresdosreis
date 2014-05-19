@@ -10,6 +10,7 @@ Museusoaresreis::Application.routes.draw do
 
   # Events
   resources :events
+  get "/events/:id/translate" => "events#translate", as: "translate"
 
 
   # Languages
