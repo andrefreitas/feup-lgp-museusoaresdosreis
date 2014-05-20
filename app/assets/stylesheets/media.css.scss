@@ -119,9 +119,24 @@ body {
   z-index: 2;
   opacity:0.9;
 }
+#puzzle{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 
+.actions{
+  padding: 20px;
+}
+a.puzzle{
+
+}
 @media screen and (max-width: 1124px){
   #modal {
     height: 50%;
   }
 }
+

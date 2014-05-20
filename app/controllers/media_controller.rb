@@ -22,4 +22,8 @@ class MediaController < ApplicationController
       format.json{render :json => Event.all.map{|e| {:event => e, :images => e.images}}}
     end
   end
+
+  def puzzle
+
+  end
 end

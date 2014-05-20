@@ -23,5 +23,6 @@ Museusoaresreis::Application.routes.draw do
   get "/getDates" => "media#getDates"
   get "/getEvents" => "media#getEvents"
   get "/getImage" => "media#getImage"
+  get "/puzzle" => "media#puzzle"
 
 end
