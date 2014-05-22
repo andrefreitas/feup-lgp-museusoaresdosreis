@@ -10,6 +10,7 @@ $(document).ready ->
   $(".close").click -> hideModal("#modal")
 
 
+
 @loadDates = ->
   dates = getDates().sort()
   for date in dates
@@ -65,6 +66,12 @@ $(document).ready ->
   console.log(image)
   $("#modal .description").html(description)
   $("#modal img.picture").attr("src", path)
+  options =
+    height: 150
+    width: 150
+    scale: 1.5
+  $("#modal img.picture").image_zoomer options
+
   showModal("#modal")
 
 @showModal = (elem) ->
