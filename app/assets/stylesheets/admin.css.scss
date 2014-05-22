@@ -189,6 +189,13 @@ body {
     button {
       width: 100%;
     }
+
+    textarea{
+      font-size: 15px;
+      width: 100%;
+      padding: 20px;
+      box-sizing:border-box;
+    }
   }
 
 }
@@ -257,8 +264,8 @@ body {
 /* Add Event */
 #addEvent {
   #contentVal {
-    width: 345px;
-    padding: 10px;
+
+
     margin-bottom: 8px;
   }
 
@@ -320,6 +327,8 @@ body {
       font-size: 10px;
     }
   }
+
+
 }
 
 /* List Languages */
