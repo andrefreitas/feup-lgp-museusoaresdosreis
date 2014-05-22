@@ -7,6 +7,7 @@ $lightGray: #B2AFAE;
 $deleteColor: #CC3333;
 $deleteColorHover: #CC583E;
 
+
 body {
 	margin: 0;
 	padding: 0;
@@ -136,8 +137,8 @@ body {
     background: #FAF1D4;
     width: 200px;
     vertical-align: top;
-
-    border-right: solid 1px #231F20;
+    padding: 0;
+    border-right: solid 1px $lightGray;
     ul {
       padding: 0;
       width: 100%;
@@ -147,11 +148,14 @@ body {
     li {
       padding-left: 25px;
       margin-top: 25px;
+      overflow: auto;
+
     }
 
     a {
       text-decoration: none;
       color: black;
+      float: left;
     }
 
     a:hover{
@@ -292,6 +296,7 @@ body {
       border-bottom: solid 1px $redColor2;
       cursor: pointer;
 
+
       &:hover {
         background: $wineColor;
       }
@@ -375,4 +380,13 @@ body {
     width: 100%;
   }
 
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  float: right;
+  border-right:10px solid $lightGray;
 }

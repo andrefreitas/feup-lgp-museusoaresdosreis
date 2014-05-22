@@ -1,6 +1,19 @@
 <ul>
-  <li><a href="/administrators">Ver Administradores</a></li>
-  <li><a href="/administrators/new">Adicionar Administrador</a></li>
-  <li><a href="/languages">Ver Idiomas</a></li>
-  <li><a href="/languages/new">Adicionar Idioma</a></li>
+
+  <%
+     seeAdmins = ""
+     createAdmin = ""
+     seeLanguages= ""
+     html = "<div class='arrow-left'></div>".html_safe
+     if params[:action] == "index" and params[:controller] == "administrators"
+       seeAdmins = html
+     elsif params[:action] == "new" and params[:controller] == "administrators"
+       createAdmin = html
+     elsif params[:action] == "index" and params[:controller] == "languages"
+       seeLanguages = html
+     end
+  %>
+  <li><a href="/administrators">Ver Administradores</a> <%=seeAdmins%></li>
+  <li><a href="/administrators/new">Adicionar Administrador</a> <%=createAdmin%></li>
+  <li><a href="/languages">Ver Línguas</a> <%=seeLanguages%></li>
 </ul>

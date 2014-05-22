@@ -1,4 +1,14 @@
 <ul>
-  <li><a href="/events">Ver eventos</a></li>
-  <li><a href="/events/new">Criar evento</a></li>
+  <%
+     seeEvents = ""
+     createEvents = ""
+     html = "<div class='arrow-left'></div>".html_safe
+     if params[:action] == "index"
+       seeEvents = html
+     else
+       createEvents = html
+     end
+  %>
+  <li><a href="/events">Ver eventos</a>  <%= seeEvents%></li>
+  <li><a href="/events/new">Criar evento</a> <%= createEvents%></li>
 </ul>
