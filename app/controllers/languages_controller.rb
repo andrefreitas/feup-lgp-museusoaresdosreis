@@ -31,4 +31,8 @@ class LanguagesController < ApplicationController
       format.json{render :json => @language}
     end
   end
+
+  def getMissingLangs
+    Language.all
+  end
 end

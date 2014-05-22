@@ -169,7 +169,7 @@ body {
     padding: 15px;
     vertical-align: top;
 
-    input {
+    input , select{
       font-size: 15px;
       padding: 10px 20px 10px 20px;
       border: solid 1px #9B9796;
@@ -178,8 +178,12 @@ body {
       margin-bottom: 10px;
     }
     select {
-      margin-bottom: 10px;
-      width: 30%;
+     border-radius: 0;
+      -webkit-appearance: none;
+      -webkit-border-radius: 0px;
+      background: white;
+      background: image-url("down_arrow_select.png") no-repeat right white;
+      cursor: pointer;
     }
 
     button {
@@ -330,6 +334,8 @@ body {
     float: left;
   }
 
+
+
   .action{
     float: right;
 
@@ -389,4 +395,24 @@ body {
   border-bottom: 10px solid transparent;
   float: right;
   border-right:10px solid $lightGray;
+}
+
+#languages{
+  .new{
+    overflow: auto;
+    button {
+      width: 50%;
+      float: right;
+      height: 38px;
+
+    }
+
+    select{
+      width: 45%;
+      float: left;
+      height: 38px;
+
+    }
+  }
+
 }

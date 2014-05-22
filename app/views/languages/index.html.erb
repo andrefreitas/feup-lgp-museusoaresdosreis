@@ -1,4 +1,4 @@
-<% content_for :title, "Ver Idiomas" %>
+<% content_for :title, "Línguas" %>
 <%= render :partial => "admin/header" %>
 <div class="box">
   <%= render :partial => "admin/menu"  %>
@@ -6,13 +6,23 @@
     <%= render :partial => "admin/adminActions"  %>
   </div>
 
-  <div class="view" id="listEvents">
+  <div class="view" id="languages">
     <div class="notifications">
+    </div>
+
+    <div class="new">
+    <select id="newLang">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    <button id="addLangBt" class="redButton">Adicionar Língua</button>
     </div>
 
     <% @language.each do |lang|%>
         <div class="lang" id="<%=lang.id %>">
-          <div class="name"><%=lang.name %></div>[<%=lang.code %>]
+          <div class="name"><%=lang.name %></div>
           <div class="action">
             <button class="delete">Eliminar</button>
           </div>

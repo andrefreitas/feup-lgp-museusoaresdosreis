@@ -25,7 +25,7 @@ deleteLanguageClick = (elem) ->
   if confirmation is true
     $(langDiv).fadeOut()
     @deleteLanguage(langID)
-    addSuccessNotification("Idioma removido!")
+    addSuccessNotification("Língua removida!")
 
 # API calls
 

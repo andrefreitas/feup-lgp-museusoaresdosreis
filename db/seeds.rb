@@ -9,3 +9,5 @@
 Administrator.create(name: "André Freitas", email: "p.andrefreitas@gmail.com", password: "123456")
 Administrator.create(name: "Rafael Vieira", email: "frpv74@gmail.com", password: "123456")
 Administrator.create(name: "Henrique Teixeira", email: "henriqmteixeira@gmail.com", password: "123456")
+
+Language.create(name: "Português", code:"pt")
