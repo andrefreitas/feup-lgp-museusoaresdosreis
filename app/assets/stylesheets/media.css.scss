@@ -129,8 +129,17 @@ body {
 }
 
 .actions{
+  height: 60px;
+  overflow: auto;
   padding: 20px;
+  text-align: right;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
 }
+
 a.puzzle{
 
 }

@@ -22,7 +22,7 @@
           <%else%>
               <%=image_tag("default-avatar.png", alt: "default image", id: "preview1", width: 74, height: 78)%>
           <%end%>
-          <input type="file" name="image1" class="upload" id="image1Val" />
+          <input type="file" name="image1" class="upload custom-file-input" id="image1Val" />
           </div>
           <div class="right">
             <%if @event.images[0]%>
@@ -39,7 +39,7 @@
           <%else%>
               <%=image_tag("default-avatar.png", alt: "default image", id: "preview2", width: 74, height: 78) %>
           <%end%>
-          <input type="file" name="image2" class="upload" id="image2Val"/>
+          <input type="file" name="image2" class="upload custom-file-input" id="image2Val"/>
           </div>
         <div class="right">
           <%if @event.images[1]%>
@@ -56,7 +56,7 @@
           <%else%>
               <%=image_tag("default-avatar.png", alt: "default image", id: "preview3", width: 74, height: 78) %>
           <%end%>
-          <input type="file" name="image3" class="upload" id="image3Val" />
+          <input type="file" name="image3" class="upload custom-file-input" id="image3Val" />
         </div>
           <div class="right">
             <%if @event.images[2]%>

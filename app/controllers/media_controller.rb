@@ -4,7 +4,7 @@ class MediaController < ApplicationController
   end
 
   def getDates
-    @dates = Event.all.select("date").map(&:date)
+    @dates = Event.all.select("date").map(&:date).uniq
     respond_to do |format|
       format.json{render :json => @dates}
     end
