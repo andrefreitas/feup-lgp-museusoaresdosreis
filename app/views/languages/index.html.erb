@@ -8,23 +8,27 @@
 
   <div class="view" id="languages">
     <div class="notifications">
+      <% if flash[:notice] %>
+          <div class="success"><%=flash[:notice]%></div>
+      <% end %>
     </div>
 
+    <% if @missingLangs.length > 0 %>
     <div class="new">
     <select id="newLang">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+      <% @missingLangs.each do |lang| %>
+          <option value="<%=lang[:code] %>"><%=lang[:name]%></option>
+      <% end %>
     </select>
-    <button id="addLangBt" class="redButton">Adicionar Língua</button>
+    <button id="addLanguageButton" class="redButton">Adicionar Língua</button>
     </div>
+    <% end %>
 
     <% @language.each do |lang|%>
         <div class="lang" id="<%=lang.id %>">
           <div class="name"><%=lang.name %></div>
           <div class="action">
-            <button class="delete">Eliminar</button>
+            <% if lang.code != "pt"%><button class="delete">Eliminar</button><% end%>
           </div>
         </div>
     <% end %>

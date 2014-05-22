@@ -6,16 +6,14 @@ $(window).ready ->
 # Events Handlers
 
 addLanguageClick = ->
-  if(@validateAddLanguageForm())
-    name = $("#nameVal").val()
-    code = $("#codeVal").val()
-    result = addLanguage(name, code)
-    if (result[0] is "codeExists")
-      addErrorNotification("O código de Idioma já existe!")
-    else
-      $("#addLanguage input").prop "disabled", true
-      $("#addLanguage button").hide()
-      addSuccessNotification("Idioma adicionado!")
+  name  = $("#newLang option:selected").text()
+  code = $("#newLang  option:selected").val()
+  console.log(name)
+  console.log(code)
+  result = addLanguage(name, code)
+  console.log(result)
+  window.location.replace("languages?notice=new")
+
 
 deleteLanguageClick = (elem) ->
   langDiv = $(elem).parent().parent()
@@ -25,7 +23,7 @@ deleteLanguageClick = (elem) ->
   if confirmation is true
     $(langDiv).fadeOut()
     @deleteLanguage(langID)
-    addSuccessNotification("Língua removida!")
+    window.location.replace("languages?notice=deleted")
 
 # API calls
 
@@ -45,23 +43,5 @@ deleteLanguageClick = (elem) ->
     type: 'DELETE',
     async: false
   })
-
-
-# Form Validation
-
-@validateAddLanguageForm = ->
-  clearNotifications()
-  name = $("#nameVal").val()
-  code = $("#codeVal").val()
-  if name.length is 0
-    addErrorNotification("Falta o nome do Idioma!")
-    return false
-  else if code.length is 0
-    addErrorNotification("Falta o código do Idioma!")
-    return false
-  else if code.length != 2
-    addErrorNotification("O código do Idioma tem de ter 2 caracteres!")
-    return false
-  true
 
 

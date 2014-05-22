@@ -399,18 +399,19 @@ body {
 
 #languages{
   .new{
+    margin-top: 20px;
     overflow: auto;
     button {
       width: 50%;
       float: right;
-      height: 38px;
+      height: 40px;
 
     }
 
     select{
       width: 45%;
       float: left;
-      height: 38px;
+      height: 40px;
 
     }
   }

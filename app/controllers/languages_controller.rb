@@ -25,6 +25,13 @@ class LanguagesController < ApplicationController
   end
 
   def index
+    if(params[:notice] == "new")
+      flash[:notice] = "Língua adicionada com sucesso"
+    elsif (params[:notice] == "deleted")
+      flash[:notice] = "Língua removida com sucesso"
+    end
+
+    @missingLangs = Language.getMissingLangs()
     @language = Language.all
     respond_to do |format|
       format.html
@@ -33,6 +40,9 @@ class LanguagesController < ApplicationController
   end
 
   def getMissingLangs
-    Language.all
+    langs = Language.getMissingLangs()
+    respond_to do |format|
+      format.json{render :json => langs}
+    end
   end
 end
