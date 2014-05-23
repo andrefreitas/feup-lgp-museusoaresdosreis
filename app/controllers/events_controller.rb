@@ -117,6 +117,7 @@ class EventsController < ApplicationController
 
   def translate
     @event = Event.find(params[:id])
+    @languages = Language.all
   end
 
   def destroy

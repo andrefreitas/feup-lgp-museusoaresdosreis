@@ -11,8 +11,9 @@
     <div class="notifications"></div>
     <form action="/events/<%=@event.id%>" method="post" onsubmit="return validateEditEvent()" enctype="multipart/form-data">
       <select>
-	  <option value="eng">English</option>
-	  <option value="eng">Francois</option>
+	<% @languages.each do |language| %>
+	<option value="<%= language.code%>"><%= language.name %></option>
+	<% end %>
       </select></br>
       <input type="text" name="title" id="titleVal" placeholder="Título" value="<%=@event.title%>" readonly />
       <input type="text" name="translatedTitle" id="translatedTitleVal" placeholder="Traducao do Título" value="" />
@@ -23,7 +24,7 @@
       
       <input name="_method" type="hidden" value="patch" />
       <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-      <button class="redButton" id="addEventButton">Traduzir Evento</button>
+      <button class="redButton" id="translateEvent">Traduzir Evento</button>
     </form>
 
   </div>
