@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
 
   # Exemplo tirado do outro site. Ainda se tem de ver como funciona.
   def self.uploadFile(upload,hash)
-    directory = "public/data"
+    directory = Rails.root.to_s + "/public/data"
     path = File.join(directory, hash)
     File.open(path, "wb") { |f| f.write(upload.read) }
   end
