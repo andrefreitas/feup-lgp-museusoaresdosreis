@@ -7,7 +7,10 @@
     var context = document.getElementById('puzzle').getContext('2d');
 
     var img = new Image();
-    img.src = "assets/fachada.jpg";
+    var num = Math.floor((Math.random() * 7) + 1);
+
+    img.src = "assets/puzzle-" + num + ".png";
+
     img.addEventListener('load', drawTiles, false);
 
     var boardSize = document.getElementById('puzzle').width;
