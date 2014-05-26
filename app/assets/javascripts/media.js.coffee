@@ -81,3 +81,13 @@ $(document).ready ->
 @hideModal = (elem) ->
   $(elem).fadeOut()
   $(".block").remove()
+
+@changeLang = (elem) ->
+  $.ajaxSetup async: false
+  data = $.getJSON("/changeLang.json",
+    code: elem
+  )
+  $.ajaxSetup async: true
+  $.parseJSON(data["responseText"])["result"] is "ok"
+  location.reload(true)
+

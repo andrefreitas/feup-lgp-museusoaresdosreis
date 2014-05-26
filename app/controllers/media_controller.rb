@@ -1,6 +1,9 @@
 class MediaController < ApplicationController
-  def index
 
+  before_action :check_language, :only => [:index, :getDates, :getEvents, :getImage]
+
+  def index
+    @language = Language.all
   end
 
   def getDates
@@ -19,7 +22,7 @@ class MediaController < ApplicationController
 
   def getEvents
     respond_to do |format|
-      format.json{render :json => Event.all.map{|e| {:event => e, :images => e.images}}}
+      format.json{render :json => Event.where(published: true).map{|e| {:event => e, :images => e.images}}}
     end
   end
 

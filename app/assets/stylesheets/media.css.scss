@@ -149,3 +149,77 @@ a.puzzle{
   }
 }
 
+.lingua {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom: 0;
+
+  ul{
+    padding: 0;
+    list-style: none;
+  }
+  ul li{
+    width: 60px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  ul li a{
+    display: block;
+    padding: 5px 10px;
+    color: #FFF;
+    //background: #6e2528;
+    text-decoration: none;
+  }
+
+  ul li a:hover{
+    color: #fff;
+    //background: $colorLightWine;
+
+    img{
+      -webkit-box-shadow: 0px 0px 9px 10px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    0px 0px 9px 10px rgba(50, 50, 50, 0.75);
+      box-shadow:         0px 0px 9px 10px rgba(50, 50, 50, 0.75);
+    }
+  }
+
+  ul li .other_lang{
+    display: none;
+
+    .flag {
+      margin-right: 10px;
+
+    }
+  }
+
+  ul li:hover .other_lang{
+     display: block;
+  }
+
+  ul li:hover .other_lang .img{
+    -webkit-box-shadow: 0px 0px 9px 10px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 9px 10px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 9px 10px rgba(50, 50, 50, 0.75);
+  }
+
+  .flag {
+    width: 25px;
+    height: 15px;
+    background: url("flags.png") no-repeat;
+
+  }
+
+  .flag.flag-de {background-position: -25px 0}
+  .flag.flag-es {background-position: -50px 0}
+  .flag.flag-fr {background-position: -75px 0}
+  .flag.flag-en {background-position: 0 -15px}
+  .flag.flag-el {background-position: -25px -15px}
+  .flag.flag-it {background-position: -50px -15px}
+  .flag.flag-nl {background-position: -75px -15px}
+  .flag.flag-pt {background-position: 0 -30px}
+  .flag.flag-ru {background-position: -25px -30px}
+  .flag.flag-sv {background-position: -50px -30px}
+  .flag.flag-tr {background-position: -75px -30px}
+
+}

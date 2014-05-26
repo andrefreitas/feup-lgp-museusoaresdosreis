@@ -33,9 +33,6 @@ $(document).ready ->
   else if(data["content"].length is 0 )
     addErrorNotification("Falta o texto")
     return false
-  else if((data["image1"] + data["image2"] + data["image3"]).length is 0 )
-    addErrorNotification("Adicione pelo menos uma imagem")
-    return false
 
   if(data["image1"].length > 0 and !imageIsValid(data["image1"]))
     addErrorNotification("As imagens apenas podem ser PNG ou JPEG")

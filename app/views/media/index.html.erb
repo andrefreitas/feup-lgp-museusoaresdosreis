@@ -4,7 +4,20 @@
 </div>
 <div class="timeline">
 
-
+</div>
+<div class = "lingua">
+  <ul style="margin:0 auto;width: 100px">
+    <li>
+      <ul>
+        <% @language.each do |lang|%>
+            <% if lang.code != @lang_code %>
+            <li class="other_lang"><a class="other_lang" href="#" onclick="changeLang('<%=lang.code%>')"> <img src="/assets/blank.gif" class="flag flag-<%= lang.code %>"/></a></li>
+            <%end%>
+        <% end %>
+      </ul>
+      <a class="lang_default" href="#"><img src="/assets/blank.gif" class="flag flag-<%= @lang_code %>"/> <label id="seta">&#9652</label></a>
+    </li>
+  </ul>
 </div>
 
 <div id="modal">

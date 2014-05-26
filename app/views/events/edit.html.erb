@@ -11,6 +11,15 @@
     <div class="notifications"></div>
 
     <form action="/events/<%=@event.id%>" method="post" onsubmit="return validateEditEvent()" enctype="multipart/form-data">
+      <div class="flatRoundedCheckbox">
+        <%if @event.published == true %>
+            <input type="checkbox" value="1" id="flatOneRoundedCheckbox" checked name="published">
+        <%else%>
+            <input type="checkbox" value="1" id="flatOneRoundedCheckbox" name="published">
+        <%end%>
+        <label for="flatOneRoundedCheckbox"></label>
+        <div></div>
+      </div>
       <input type="text" name="title" id="titleVal" placeholder="Título" value="<%=@event.title%>" />
       <input type="text" name="date" id="dateVal" placeholder="Data" value="<%=@event.date%>"/>
       <textarea rows="10" placeholder="Inserir texto" name="content" id="contentVal"><%=@event.content%></textarea><br/>
