@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class LanguagesController < ApplicationController
 
   before_action :check_auth, :only => [:new, :create, :destroy, :index]
