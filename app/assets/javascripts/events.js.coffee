@@ -43,18 +43,6 @@ $(document).ready ->
     addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
     return false
 
-  if(data["image1"].length > 0 and data["caption1"].length is 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
-  if(data["image2"].length > 0 and data["caption2"].length == 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
-  if(data["image3"].length > 0 and data["caption3"].length == 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
   console.log(data)
   return true
 
@@ -90,29 +78,6 @@ $(document).ready ->
     addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
     return false
 
-  if(data["image1"].length > 0 and data["caption1"].length is 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
-  if(data["image2"].length > 0 and data["caption2"].length is 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
-  if(data["image3"].length > 0 and data["caption3"].length is 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
-  if ($("#preview1").attr("alt") isnt "default image" and data["caption1"].length is 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
-  if ($("#preview2").attr("alt") isnt "default image" and data["caption2"].length is 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
-
-  if ($("#preview3").attr("alt") isnt "default image" and data["caption3"].length is 0)
-    addErrorNotification("A imagem precisa de ter uma legenda")
-    return false
 
   console.log(data)
   return true
