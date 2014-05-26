@@ -30,9 +30,6 @@ $(document).ready ->
   else if(data["date"].length is 0)
     addErrorNotification("Falta a data")
     return false
-  else if(data["content"].length is 0 )
-    addErrorNotification("Falta o texto")
-    return false
 
   if(data["image1"].length > 0 and !imageIsValid(data["image1"]))
     addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
@@ -79,9 +76,6 @@ $(document).ready ->
     return false
   else if(data["date"].length is 0)
     addErrorNotification("Falta a data")
-    return false
-  else if(data["content"].length is 0 )
-    addErrorNotification("Falta o texto")
     return false
 
   if(data["image1"].length > 0 and !imageIsValid(data["image1"]))
