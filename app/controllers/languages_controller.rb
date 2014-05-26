@@ -46,4 +46,14 @@ class LanguagesController < ApplicationController
       format.json{render :json => langs}
     end
   end
+
+  def changeLang
+    code = params[:code]
+    session[:language] = code
+    respond_to do |format|
+      format.json {
+        render json: {"result"=> "ok"}
+      }
+    end
+  end
 end

@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     @adminSession = session[:administrator]
   end
 
+  def check_language
+    if session[:language].nil?
+      session[:language] = "pt"
+    end
+    @lang_code = session[:language]
+  end
 end

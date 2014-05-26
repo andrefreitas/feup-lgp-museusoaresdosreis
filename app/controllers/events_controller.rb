@@ -57,11 +57,17 @@ class EventsController < ApplicationController
     caption2 = params[:caption2]
     image3 = params[:image3]
     caption3 = params[:caption3]
+    published = params[:published]
     directory = "public/data"
 
     @event.title = title
     @event.date = date
     @event.content = content
+    if published == "1"
+      @event.published = true
+    else
+      @event.published = false
+    end
     @image1 = @event.images[0]
     @image2 = @event.images[1]
     @image3 = @event.images[2]

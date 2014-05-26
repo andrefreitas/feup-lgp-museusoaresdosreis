@@ -16,6 +16,7 @@ Museusoaresreis::Application.routes.draw do
   # Languages
   resources :languages
   get "/getMissingLangs" => "languages#getMissingLangs"
+  get "/changeLang" => "languages#changeLang"
 
   # Root
   root "media#index"
