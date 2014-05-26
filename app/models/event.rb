@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :images, dependent: :destroy
   has_many :event_translation
   validates :title, presence:true
-  validates :content, presence:true
+  #validates :content, presence:true
   #validates :chronology, presence:true
   #validates :map, presence:true
   before_save :default_values

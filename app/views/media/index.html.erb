@@ -5,6 +5,8 @@
 <div class="timeline">
 
 </div>
+
+<% if @language.size != 1 %>
 <div class = "lingua">
   <ul style="margin:0 auto;width: 100px">
     <li>
@@ -19,7 +21,7 @@
     </li>
   </ul>
 </div>
-
+<%end%>
 <div id="modal">
    <img class="picture" src="">
   <div class="close"><img alt="Museu Nacional Soares dos Reis" src="/assets/close.svg" width="100px" height="100px"></div>
