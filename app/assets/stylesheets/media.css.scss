@@ -129,20 +129,21 @@ body {
 }
 
 .actions{
-  height: 60px;
-  overflow: auto;
-  padding: 20px;
-  text-align: right;
 
   img {
-    height: 100%;
+    height: 60px;
     width: auto;
+
   }
 }
 
 a.puzzle{
+  position: fixed;
+  right: 20px;
+  top: 20px;
 
 }
+
 @media screen and (max-width: 1124px){
   #modal {
     height: 50%;
@@ -222,4 +223,21 @@ a.puzzle{
   .flag.flag-sv {background-position: -50px -30px}
   .flag.flag-tr {background-position: -75px -30px}
 
+}
+
+.btn-wine{
+  padding: 5px 15px 5px 15px;
+  border: solid 1px #282828;
+  background: #83473E;
+  color: white;
+  cursor: pointer;
+
+}
+
+.btn-back{
+  font-size: 20px;
+  padding: 10px 15px 10px 15px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
 }
