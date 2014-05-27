@@ -15,10 +15,13 @@ class EventsController < ApplicationController
     content = params[:content]
     image1 = params[:image1]
     caption1 = params[:caption1]
+    title_img1 = params[:title_img1]
     image2 = params[:image2]
     caption2 = params[:caption2]
+    title_img2 = params[:title_img2]
     image3 = params[:image3]
     caption3 = params[:caption3]
+    title_img3 = params[:title_img3]
     directory = "public/data"
 
     @event = Event.create(title: title, date: date, content: content)
@@ -26,21 +29,21 @@ class EventsController < ApplicationController
     if(image1)
       hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image1.original_filename)
       path = File.join(directory, hash)
-      @image = @event.images.create(name: image1.original_filename, path: path, hashcode: hash, caption: caption1)
+      @image = @event.images.create(name: image1.original_filename, path: path, hashcode: hash, caption: caption1, title: title_img1)
       Image.uploadFile(image1,hash)
     end
 
     if(image2)
       hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image2.original_filename)
       path = File.join(directory, hash)
-      @image = @event.images.create(name: image2.original_filename, path: path, hashcode: hash, caption: caption2)
+      @image = @event.images.create(name: image2.original_filename, path: path, hashcode: hash, caption: caption2, title: title_img2)
       Image.uploadFile(image2,hash)
     end
 
     if(image3)
       hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image3.original_filename)
       path = File.join(directory, hash)
-      @image = @event.images.create(name: image3.original_filename, path: path, hashcode: hash, caption: caption3)
+      @image = @event.images.create(name: image3.original_filename, path: path, hashcode: hash, caption: caption3, title: title_img3)
       Image.uploadFile(image3,hash)
     end
 
@@ -59,10 +62,13 @@ class EventsController < ApplicationController
     content = params[:content]
     image1 = params[:image1]
     caption1 = params[:caption1]
+    title_img1 = params[:title_img1]
     image2 = params[:image2]
     caption2 = params[:caption2]
+    title_img2 = params[:title_img2]
     image3 = params[:image3]
     caption3 = params[:caption3]
+    title_img3 = params[:title_img3]
     published = params[:published]
     directory = "public/data"
 
@@ -79,14 +85,17 @@ class EventsController < ApplicationController
     @image3 = @event.images[2]
     @event.save
     if @image1
+      @image1.title = title_img1
       @image1.caption = caption1
       @image1.save
     end
     if @image2
+      @image2.title = title_img2
       @image2.caption = caption2
       @image2.save
     end
     if @image3
+      @image3.title = title_img3
       @image3.caption = caption3
       @image3.save
     end
@@ -97,7 +106,7 @@ class EventsController < ApplicationController
       end
       hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image1.original_filename)
       path = File.join(directory, hash)
-      @image = @event.images.create(name: image1.original_filename, path: path, hashcode: hash, caption: caption1)
+      @image = @event.images.create(name: image1.original_filename, path: path, hashcode: hash, caption: caption1, title: title_img1)
       Image.uploadFile(image1,hash)
     end
     if image2
@@ -107,7 +116,7 @@ class EventsController < ApplicationController
       end
       hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image2.original_filename)
       path = File.join(directory, hash)
-      @image = @event.images.create(name: image2.original_filename, path: path, hashcode: hash, caption: caption2)
+      @image = @event.images.create(name: image2.original_filename, path: path, hashcode: hash, caption: caption2, title: title_img2)
       Image.uploadFile(image2,hash)
     end
     if image3
@@ -117,7 +126,7 @@ class EventsController < ApplicationController
       end
       hash = Time.new.to_formatted_s(:number) + "_" + rand(9999).to_s + File.extname(image3.original_filename)
       path = File.join(directory, hash)
-      @image = @event.images.create(name: image3.original_filename, path: path, hashcode: hash, caption: caption3)
+      @image = @event.images.create(name: image3.original_filename, path: path, hashcode: hash, caption: caption3, title: title_img3)
       Image.uploadFile(image3,hash)
     end
     redirect_to(events_path, :notice => "Evento atualizado com sucesso!")
