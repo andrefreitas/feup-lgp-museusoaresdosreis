@@ -74,17 +74,11 @@ $(document).ready ->
   $("#modal .description").html(description)
   $("#modal img.picture").attr("src", path)
   $("#modal img.picture").attr("data-big", path)
-
   options =
-    imgSrc: $("#modal img.picture").attr("data-big")
-    lensShape: "circle"
-    lensSize: 180
-    borderSize: 4
-    borderColor: "#fff"
-    borderRadius: 0
-    overlayAdapt: true
-    zoomLevel: 2
-  $("#modal img.picture").mlens options
+    height: 150
+    width: 150
+    scale: 1.5
+  $("#modal img.picture").image_zoomer options
 
   showModal("#modal")
 
