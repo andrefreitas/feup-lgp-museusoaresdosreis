@@ -8,7 +8,7 @@ $(document).ready ->
   loadEvents()
   bindImagesClick()
   $(".close").click -> hideModal("#modal")
-
+  $("#modal img.picture").click -> hideModal("#modal")
 
 
 @loadDates = ->
