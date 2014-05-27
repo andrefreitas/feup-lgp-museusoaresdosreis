@@ -66,8 +66,6 @@ body {
 
 #modal {
   display: none;
-  width: 80%;
-  height: 70%;
   position: fixed;
   top:0;
   bottom: 0;
@@ -75,12 +73,13 @@ body {
   right: 0;
   margin: auto;
   background: #4E4D46;
+  overflow: scroll;
 
   z-index: 3;
 
     img {
-      height: 100%;
-      width: auto;
+      margin-top: 50px;
+      margin-left: 50px;
       float: left;
     }
 
@@ -91,18 +90,18 @@ body {
     font-family: "Georgia";
     color: white;
     vertical-align: top;
-
   }
 
   .close{
     overflow: auto;
-    padding: 20px 20px 0 0 ;
+    margin-top: 20px;
+    margin-right: 70px;
     cursor: pointer;
 
 
     img {
-      width: 20px;
-      height: 20px;
+      width: 50px;
+      height: 50px;
       float: right;
     }
   }
