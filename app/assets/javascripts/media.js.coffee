@@ -47,9 +47,16 @@ $(document).ready ->
   $(".timeline").append(html)
 
 @addImage = (date, path, eventID, imageID) ->
-  html = "<img src='#{path}' eventID='#{eventID}' imageID='#{imageID}'>"
+  html = "<img src='#{path}' eventID='#{eventID}' imageID='#{imageID}' id='img-#{imageID}'>"
   $("\##{date} .images").append(html)
-  timelineWidthAdd(270)
+
+  sel = "#img-" + imageID
+  $(sel).load -> onImageLoad(this)
+
+
+ @onImageLoad = (elem) ->
+   imageWidth = $(elem).width()
+   timelineWidthAdd(imageWidth  + 20)
 
 @timelineWidthAdd = (width) ->
   oldWidth = $(".timeline").width()
