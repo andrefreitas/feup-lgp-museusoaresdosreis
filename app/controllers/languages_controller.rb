@@ -12,6 +12,13 @@ class LanguagesController < ApplicationController
     if Language.where(code: code).empty?
       @language = Language.create(:name => name, :code => code)
       @result = @language
+
+      #Create Translations to all events
+      events = Event.all
+      events.each do |event|
+        EventTranslation.create(title: "", content:"",event_id:event.id, lang:code)
+      end
+      
     else
       @result = ["codeExists"]
     end

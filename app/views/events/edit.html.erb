@@ -4,9 +4,10 @@
   <%= render :partial => "admin/menu"  %>
   <div class="actions">
     <%= render :partial => "admin/eventsActions"  %>
-    <li><a href="/events/<%=@event.id%>/translate">Traduzir</a></li>
   </div>
-
+  <div id="eventID" style="display: none">
+    <%= @event.id %>
+  </div>
   <div class="view" id="addEvent">
     <div class="notifications"></div>
 
@@ -20,9 +21,18 @@
         <label for="flatOneRoundedCheckbox"></label>
         <div></div>
       </div>
+      <div id="translations">
+       <select id="languagesSelect">
+          <% @languages.each do |language| %>
+          <option value="<%= language.code%>"><%= language.name %></option>
+        <% end %>
+        </select>        
+      </div>
       <input type="text" name="title" id="titleVal" placeholder="Título" value="<%=@event.title%>" />
+      <input type="text" class="translation" name="translatedTitle" id="translatedTitleVal" placeholder="Traducao do Título" value="" />
       <input type="text" name="date" id="dateVal" placeholder="Data" value="<%=@event.date%>"/>
-      <textarea rows="10" placeholder="Inserir texto" name="content" id="contentVal"><%=@event.content%></textarea><br/>
+      <textarea placeholder="Inserir texto" name="content" id="contentVal"><%=@event.content%></textarea><br/>
+      <div><textarea class="translation" placeholder="Traduza aqui o texto" name="translatedContent" id="translatedContentVal"></textarea></br></div>
       <div class="imagesArea-new">
         <div class="image-div">
           <div class="left">

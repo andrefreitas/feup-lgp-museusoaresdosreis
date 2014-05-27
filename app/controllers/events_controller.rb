@@ -44,6 +44,12 @@ class EventsController < ApplicationController
       Image.uploadFile(image3,hash)
     end
 
+    languages = Language.all
+    languages.each do |language|
+    	if(language.code != 'pt')
+    		EventTranslation.create(title:"",content:"", lang:language.code, event:@event)
+    	end
+    end
     redirect_to(events_path, :notice => "Evento criado com sucesso!")
   end
 
@@ -119,6 +125,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @languages = Language.all
   end
 
   def translate
@@ -132,6 +139,13 @@ class EventsController < ApplicationController
     images.each do |image|
       image.deleteFile()
     end
+
+    #Delete Translations
+    translations = EventTranslation.where(event_id:@event.id)
+    translations.each do |translation|
+    	translation.destroy
+    end
+
     @event.destroy
   end
 

@@ -1,7 +1,10 @@
 # Events Binding
 $(document).ready ->
 
+  changeLanguage(this)
+  $('.translation').hide()
   $('.event .delete').click -> deleteEventClick(this)
+  $('#languagesSelect').change -> changeLanguage(this) 
   $("#image1").change -> readImage1 this
   $("#image2").change -> readImage2 this
   $("#image3").change -> readImage3 this
@@ -9,6 +12,33 @@ $(document).ready ->
   $("#image2Val").change -> readImage2 this
   $("#image3Val").change -> readImage3 this
 
+
+@changeLanguage =(elem) ->
+  language = $('#languagesSelect :selected').text()
+  eventID = $('#eventID').html()
+  languageCode = $('#languagesSelect :selected').val()
+  $.ajaxSetup async: false
+  data = $.getJSON("/findTranslation.json",
+    id: eventID
+    language: languageCode
+  )
+  $.ajaxSetup async: true
+  result = $.parseJSON(data["responseText"])["result"]
+  if result is "found"
+    contentText = $.parseJSON(data["responseText"])["content"]
+    titleText = $.parseJSON(data["responseText"])["title"]
+    $("#translatedContentVal").text contentText
+    $("#translatedTitleVal").val titleText
+  else
+    $('#translatedTitleVal').val ""
+    $('#translatedContentVal').text ""
+  if language is 'Português'
+    $('.translation').hide()
+  else
+    $('.translation').show()
+  return false
+
+  
 
 # Form Validations
 @validateAddEvent = ->
@@ -78,7 +108,20 @@ $(document).ready ->
     addErrorNotification("As imagens apenas podem ser PNG ou JPEG")
     return false
 
-
+  language = $('#languagesSelect :selected').text()
+  languageCode = $('#languagesSelect :selected').val()
+  content = $("#translatedContentVal").val()
+  title = $("#translatedTitleVal").val()
+  eventID = $('#eventID').html()
+  unless language is 'Português'
+    $.ajaxSetup async: false
+    data = $.getJSON("/updateTranslation",
+    title: title
+    content: content
+    language: languageCode
+    event:eventID
+    )
+  $.ajaxSetup async: true
   console.log(data)
   return true
 
