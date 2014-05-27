@@ -18,6 +18,11 @@ Museusoaresreis::Application.routes.draw do
   get "/getMissingLangs" => "languages#getMissingLangs"
   get "/changeLang" => "languages#changeLang"
 
+  # Translations
+  get "/findTranslation" => "event_translations#findTranslation"
+  get "/updateTranslation" => "event_translations#updateTranslation"
+  resources :event_translations
+
   # Root
   root "media#index"
 
