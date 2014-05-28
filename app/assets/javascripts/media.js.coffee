@@ -41,7 +41,7 @@ $(document).ready ->
   $("\##{date} .images").append(html)
   sel = "#ev-" + eventID
   imageWidth = $(sel).width()
-  timelineWidthAdd(imageWidth  + 60)
+  timelineWidthAdd(imageWidth  + 70)
   sel2 = "#ev-in-" + eventID
   $(sel2).css( "paddingTop", ( 400 - $(sel2).height() ) / 2 );
 

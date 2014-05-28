@@ -41,18 +41,19 @@ body {
       .event-text{
         padding: 0;
         height: 400px;
-        width: 250px;
+        width: 300px;
         padding-left: 20px;
         padding-right: 20px;
         margin: 10px;
         font-size: 40px;
-        -webkit-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.05);
-        -moz-box-shadow:    inset 0px 0px 10px 0px rgba(50, 50, 50, 0.05);
-        box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.05);
+        border-width:5px;
+        border-style:dashed;
+        border-color: $colorWine;
         overflow: hidden;
         cursor: pointer;
         .event-inside{
           text-align: center;
+          color: $colorWine;
         }
       }
       .event-text:hover{
