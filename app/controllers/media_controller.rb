@@ -1,13 +1,13 @@
 class MediaController < ApplicationController
 
-  before_action :check_language, :only => [:index, :getDates, :getEvents, :getImage]
+  before_action :check_language, :only => [:index, :getDates, :getEvents, :getImage, :getEvent]
 
   def index
     @language = Language.all
   end
 
   def getDates
-    @dates = Event.all.select("date").map(&:date).uniq
+    @dates = Event.where(published: true).select("date").map(&:date).uniq
     respond_to do |format|
       format.json{render :json => @dates}
     end
@@ -17,6 +17,13 @@ class MediaController < ApplicationController
     imageID = params[:id]
     respond_to do |format|
       format.json{render :json => Image.find(imageID)}
+    end
+  end
+
+  def getEvent
+    eventID = params[:id]
+    respond_to do |format|
+      format.json{render :json => Event.find(eventID)}
     end
   end
 
