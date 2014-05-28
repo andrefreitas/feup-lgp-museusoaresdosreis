@@ -9,6 +9,7 @@ $(document).ready ->
   bindImagesClick()
   bindTextEventsClick()
   $(".close").click -> hideModal("#modal")
+  $(".close").click -> hideModal("#modal-noimage")
   $("#modal img.picture").click -> hideModal("#modal")
 
 
@@ -34,7 +35,7 @@ $(document).ready ->
     else
       addEvent(date, eventID, title, content)
 
-@addEvent = (date, eventID, title, content)->
+@addEvent = (date, eventID, title)->
   html = "<div class='event-text' eventID='#{eventID}' id='ev-#{eventID}' ><div class='event-inside' id='ev-in-#{eventID}'>#{title}</div> </div>"
   $("\##{date} .images").append(html)
   sel = "#ev-" + eventID
@@ -49,10 +50,12 @@ $(document).ready ->
 @eventClick = (elem) ->
   eventID = $(elem).attr("eventID")
   event = getEvent(eventID)
-  description = event['content']
+  title = event['title']
+  content = event['content']
   console.log(event)
-  $("#modal .description").html(description)
-  showModal("#modal")
+  $("#modal-noimage .mod-title").html(title)
+  $("#modal-noimage .description").html(content)
+  showModal("#modal-noimage")
 
 
 @getDates = ->
