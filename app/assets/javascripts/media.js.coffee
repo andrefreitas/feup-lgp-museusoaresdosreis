@@ -7,7 +7,9 @@ $(document).ready ->
   loadDates()
   loadEvents()
   bindImagesClick()
+  bindTextEventsClick()
   $(".close").click -> hideModal("#modal")
+  $(".close").click -> hideModal("#modal-noimage")
   $("#modal img.picture").click -> hideModal("#modal")
 
 
@@ -22,12 +24,38 @@ $(document).ready ->
   for event in events
     date = event["event"]["date"]
     eventID = event["event"]["id"]
+    title = event["event"]["title"]
+    content = event["event"]["content"]
     images = event["images"]
+    if images.length > 0
+      for image in images
+        path = image["path"].replace "public/" , ""
+        imageID = image["id"]
+        addImage(date, path, eventID, imageID)
+    else
+      addEvent(date, eventID, title, content)
 
-    for image in images
-      path = image["path"].replace "public/" , ""
-      imageID = image["id"]
-      addImage(date, path, eventID, imageID)
+@addEvent = (date, eventID, title)->
+  html = "<div class='event-text' eventID='#{eventID}' id='ev-#{eventID}' ><div class='event-inside' id='ev-in-#{eventID}'>#{title}</div> </div>"
+  $("\##{date} .images").append(html)
+  sel = "#ev-" + eventID
+  imageWidth = $(sel).width()
+  timelineWidthAdd(imageWidth  + 60)
+  sel2 = "#ev-in-" + eventID
+  $(sel2).css( "paddingTop", ( 400 - $(sel2).height() ) / 2 );
+
+@bindTextEventsClick = ->
+  $(".event-text").click -> eventClick(this)
+
+@eventClick = (elem) ->
+  eventID = $(elem).attr("eventID")
+  event = getEvent(eventID)
+  title = event['title']
+  content = event['content']
+  console.log(event)
+  $("#modal-noimage .mod-title").html(title)
+  $("#modal-noimage .description").html(content)
+  showModal("#modal-noimage")
 
 
 @getDates = ->
@@ -38,6 +66,9 @@ $(document).ready ->
 
 @getImage = (id) ->
   $.getJSON("/getImage.json", id: id)["responseJSON"]
+
+@getEvent = (id) ->
+  $.getJSON("/getEvent.json", id: id)["responseJSON"]
 
 @addDate = (date) ->
   html  = "<div id='#{date}' class='year'>"
@@ -54,9 +85,9 @@ $(document).ready ->
   $(sel).load -> onImageLoad(this)
 
 
- @onImageLoad = (elem) ->
-   imageWidth = $(elem).width()
-   timelineWidthAdd(imageWidth  + 20)
+@onImageLoad = (elem) ->
+  imageWidth = $(elem).width()
+  timelineWidthAdd(imageWidth  + 20)
 
 @timelineWidthAdd = (width) ->
   oldWidth = $(".timeline").width()
