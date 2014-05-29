@@ -11,6 +11,7 @@ $(document).ready ->
   $(".close").click -> hideModal("#modal")
   $(".close").click -> hideModal("#modal-noimage")
   $("#modal img.picture").click -> hideModal("#modal")
+  $("#autoPlay").click -> autoPlay()
 
 
 @loadDates = ->
@@ -130,3 +131,63 @@ $(document).ready ->
   $.parseJSON(data["responseText"])["result"] is "ok"
   location.reload(true)
 
+
+pieces = new Array()
+counter = 0;
+@autoPlay = () ->
+
+  events = getEvents()
+  for event in events
+    images = event["images"]
+    if images.length > 0
+      for image in images
+        piec = new Array()
+        imageID = image["id"]
+        piec['id'] = imageID
+        piec['type'] = '2'
+        pieces.push piec
+    else
+      piec = new Array()
+      piec['id'] = event["event"]["id"] 
+      piec['type'] = '1'
+      pieces.push piec
+
+  alert("1 " + pieces[1]['type'])
+  counter = 0;
+  nextEvent()
+
+@nextEvent = () ->
+  if counter >= pieces.length
+    return
+
+  
+  if pieces[counter]['type'] is '1'
+    event = getEvent(pieces[counter]['id'])
+    title = event['title']
+    content = event['content']
+    console.log(event)
+    $("#modal-noimage .mod-title").html(title)
+    $("#modal-noimage .description").html(content)
+    showModal("#modal-noimage")
+  else
+    image = getImage(pieces[counter]['id'])
+    description = image["caption"]
+    path = image["path"].replace "public/" , ""
+    console.log(pieces[counter]['id'])
+    $("#modal .description").html(description)
+    $("#modal img.picture").attr("src", path)
+    $("#modal img.picture").attr("data-big", path)
+    options =
+      height: 150
+      width: 150
+      scale: 1.5
+    $("#modal img.picture").image_zoomer options
+    showModal("#modal")
+
+  counter = counter + 1
+  setTimeout("closeModals()", 2000)
+
+@closeModals = () ->
+  hideModal("#modal")
+  hideModal("#modal-noimage")
+  setTimeout("nextEvent()",1000)
