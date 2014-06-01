@@ -11,12 +11,7 @@ body {
 .timeline{
   height: 500px;
   background-color: $colorYellow;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  margin-top: 50px;
 
   .year{
     display: table-cell;
@@ -28,10 +23,23 @@ body {
 
       img{
         vertical-align:text-top;
-        height: 400px;
+        height: 350px;
         width: auto;
         margin: 10px;
         cursor: pointer;
+      }
+
+      .title{
+        padding: 10px;
+        color: $colorWine;
+
+        text-align: center;
+      }
+
+      .image{
+        overflow: auto;
+        float: left;
+
       }
 
       img:hover{

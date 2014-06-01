@@ -32,7 +32,12 @@ $(document).ready ->
       for image in images
         path = image["path"].replace "public/" , ""
         imageID = image["id"]
-        addImage(date, path, eventID, imageID)
+        title = image["title"]
+        if(!title)
+          title=""
+        else
+          title = title.substr(0,37) + if title.length > 37 then "..." else ""
+        addImage(date, path, eventID, imageID, title)
     else
       addEvent(date, eventID, title, content)
 
@@ -78,8 +83,8 @@ $(document).ready ->
   html += "</div>"
   $(".timeline").append(html)
 
-@addImage = (date, path, eventID, imageID) ->
-  html = "<img src='#{path}' eventID='#{eventID}' imageID='#{imageID}' id='img-#{imageID}'>"
+@addImage = (date, path, eventID, imageID, title) ->
+  html = "<div class=\"image\"><div class=\"title\"> #{title}</div><img src='#{path}' eventID='#{eventID}' imageID='#{imageID}' id='img-#{imageID}'></div>"
   $("\##{date} .images").append(html)
 
   sel = "#img-" + imageID
