@@ -33,7 +33,7 @@
       <input type="text" class="translation" name="translatedTitle" id="translatedTitleVal" placeholder="Traducao do Título" value="" />
       <input type="text" name="date" id="dateVal" placeholder="Data" value="<%=@event.date%>"/>
       <textarea placeholder="Inserir texto" name="content" id="contentVal"><%=@event.content%></textarea><br/>
-      <div><textarea class="translation" placeholder="Traduza aqui o texto" name="translatedContent" id="translatedContentVal"></textarea></br></div>
+      <div><textarea class="translation" placeholder="Traduza aqui o texto" name="translatedContent" id="translatedContentVal"></textarea></div>
       <div class="imagesArea-new">
         <div class="image-div">
           <div class="left">
@@ -47,7 +47,9 @@
           <div class="right">
             <%if @event.images[0]%>
                 <input type="text" name="title_img1" class="title_img" placeholder="Título da imagem" value="<%=@event.images[0].title%>" />
+                <input type="text" class="translation" name="translatedTitle_img1" id="translatedTitleImg1Val" placeholder="Traducao do Título da imagem" value="" />
                 <textarea rows="3" placeholder="Legenda" name="caption1" class="captionText" id="caption1Val"><%=@event.images[0].caption%></textarea>
+                <textarea class="translation" placeholder="Traduza aqui a legenda da imagem" name="translatedCaption1" id="translatedCaption1Val"></textarea>
             <%else%>
                 <input type="text" name="title_img1" class="title_img" placeholder="Título da imagem" />
                 <textarea rows="3" placeholder="Legenda" name="caption1" class="captionText" id="caption1Val"></textarea>
@@ -66,7 +68,9 @@
         <div class="right">
           <%if @event.images[1]%>
               <input type="text" name="title_img2" class="title_img" placeholder="Título da imagem" value="<%=@event.images[1].title%>"/>
+              <input type="text" class="translation" name="translatedTitle_img2" id="translatedTitleImg2Val" placeholder="Traducao do Título da imagem" value="" />
               <textarea rows="3" placeholder="Legenda" name="caption2" class="captionText" id="caption2Val"><%=@event.images[1].caption%></textarea>
+              <textarea class="translation" placeholder="Traduza aqui a legenda da imagem" name="translatedCaption2" id="translatedCaption2Val"></textarea>
           <%else%>
               <input type="text" name="title_img2" class="title_img" placeholder="Título da imagem" />
               <textarea rows="3" placeholder="Legenda" name="caption2" class="captionText" id="caption2Val"></textarea>
@@ -85,7 +89,9 @@
           <div class="right">
             <%if @event.images[2]%>
                 <input type="text" name="title_img3" class="title_img" placeholder="Título da imagem" value="<%=@event.images[2].title%>"/>
+                <input type="text" class="translation" name="translatedTitle_img3" id="translatedTitleImg3Val" placeholder="Traducao do Título da imagem" value="" />
                 <textarea rows="3" placeholder="Legenda" name="caption3" class="captionText" id="caption3Val"><%=@event.images[2].caption%></textarea>
+                <textarea class="translation" placeholder="Traduza aqui a legenda da imagem" name="translatedCaption3" id="translatedCaption3Val"></textarea>
             <%else%>
                 <input type="text" name="title_img3" class="title_img" placeholder="Título da imagem"/>
                 <textarea rows="3" placeholder="Legenda" name="caption3" class="captionText" id="caption3Val"></textarea>

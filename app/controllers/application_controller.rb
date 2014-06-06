@@ -15,4 +15,5 @@ class ApplicationController < ActionController::Base
     end
     @lang_code = session[:language]
   end
+
 end

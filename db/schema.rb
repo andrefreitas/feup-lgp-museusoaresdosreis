@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527142435) do
+ActiveRecord::Schema.define(version: 20140606112752) do
 
   create_table "administrators", force: true do |t|
     t.string   "email"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20140527142435) do
 
   add_index "events", ["chronology_id"], name: "index_events_on_chronology_id", using: :btree
   add_index "events", ["map_id"], name: "index_events_on_map_id", using: :btree
+
+  create_table "image_translations", force: true do |t|
+    t.string   "path"
+    t.text     "caption"
+    t.string   "title"
+    t.integer  "event_translation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_translations", ["event_translation_id"], name: "index_image_translations_on_event_translation_id", using: :btree
 
   create_table "images", force: true do |t|
     t.string   "name"

@@ -49,7 +49,7 @@ class EventsController < ApplicationController
 
     languages = Language.all
     languages.each do |language|
-    	if(language.code != 'pt')
+    	if language.code != 'pt'
     		EventTranslation.create(title:"",content:"", lang:language.code, event:@event)
     	end
     end

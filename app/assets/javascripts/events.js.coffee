@@ -13,7 +13,7 @@ $(document).ready ->
   $("#image3Val").change -> readImage3 this
 
 
-@changeLanguage =(elem) ->
+@changeLanguage = ->
   language = $('#languagesSelect :selected').text()
   eventID = $('#eventID').html()
   languageCode = $('#languagesSelect :selected').val()
@@ -27,11 +27,33 @@ $(document).ready ->
   if result is "found"
     contentText = $.parseJSON(data["responseText"])["content"]
     titleText = $.parseJSON(data["responseText"])["title"]
+    images = $.parseJSON(data["responseText"])["images"]
+    if images[0]
+      titleimg1 = images[0].title
+      caption1 = images[0].caption
+    if images[1]
+      titleimg2 = images[1].title
+      caption2 = images[1].caption
+    if images[2]
+      titleimg3 = images[2].title
+      caption3 = images[2].caption
     $("#translatedContentVal").text contentText
     $("#translatedTitleVal").val titleText
+    $("#translatedTitleImg1Val").val titleimg1
+    $("#translatedCaption1Val").text caption1
+    $("#translatedTitleImg2Val").val titleimg2
+    $("#translatedCaption2Val").text caption2
+    $("#translatedTitleImg3Val").val titleimg3
+    $("#translatedCaption3Val").text caption3
   else
     $('#translatedTitleVal').val ""
     $('#translatedContentVal').text ""
+    $("#translatedTitleImg1Val").val ""
+    $("#translatedCaption1Val").text ""
+    $("#translatedTitleImg2Val").val ""
+    $("#translatedCaption2Val").text ""
+    $("#translatedTitleImg3Val").val ""
+    $("#translatedCaption3Val").text ""
   if language is 'Português'
     $('.translation').hide()
   else
@@ -112,6 +134,12 @@ $(document).ready ->
   languageCode = $('#languagesSelect :selected').val()
   content = $("#translatedContentVal").val()
   title = $("#translatedTitleVal").val()
+  translatedTitle_img1 = $("#translatedTitleImg1Val").val()
+  translatedTitle_img2 = $("#translatedTitleImg2Val").val()
+  translatedTitle_img3 = $("#translatedTitleImg3Val").val()
+  translatedCaption1 = $("#translatedCaption1Val").val()
+  translatedCaption2 = $("#translatedCaption2Val").val()
+  translatedCaption3 = $("#translatedCaption3Val").val()
   eventID = $('#eventID').html()
   unless language is 'Português'
     $.ajaxSetup async: false
@@ -119,7 +147,13 @@ $(document).ready ->
     title: title
     content: content
     language: languageCode
-    event:eventID
+    translatedTitle_img1: translatedTitle_img1
+    translatedCaption1: translatedCaption1
+    translatedTitle_img2: translatedTitle_img2
+    translatedCaption2: translatedCaption2
+    translatedTitle_img3: translatedTitle_img3
+    translatedCaption3: translatedCaption3
+    event: eventID
     )
   $.ajaxSetup async: true
   console.log(data)

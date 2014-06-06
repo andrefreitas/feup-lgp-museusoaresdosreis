@@ -20,6 +20,10 @@ $(document).ready ->
     timelineWidthAdd(40)
     addDate(date)
 
+@check_language = ->
+  $.getJSON("/event_language.json")["responseJSON"]
+
+
 @loadEvents = ->
   events = getEvents()
   for event in events
@@ -39,7 +43,7 @@ $(document).ready ->
           title = title.substr(0,37) + if title.length > 37 then "..." else ""
         addImage(date, path, eventID, imageID, title)
     else
-      addEvent(date, eventID, title, content)
+      addEvent(date, eventID, title)
 
 @addEvent = (date, eventID, title)->
   html = "<div class='event-text' eventID='#{eventID}' id='ev-#{eventID}' ><div class='event-inside' id='ev-in-#{eventID}'>#{title}</div> </div>"
@@ -157,7 +161,7 @@ counter = 0;
       piec['type'] = '1'
       pieces.push piec
 
-  alert("1 " + pieces[1]['type'])
+  #alert("1 " + pieces[1]['type'])
   counter = 0;
   nextEvent()
 
