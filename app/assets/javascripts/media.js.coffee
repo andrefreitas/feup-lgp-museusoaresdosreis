@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 language = 'pt'
+autoPlaying = false;
+proxyTimeout = null;
 $(document).ready ->
 
   language = $("#actualLanguage").text()
@@ -16,7 +18,7 @@ $(document).ready ->
   $(".close").click -> hideModal("#modal-noimage")
   $("#modal img.picture").click -> hideModal("#modal")
   $("#autoPlay").click -> autoPlay()
-
+  $(".timeline").click -> stopAutoPlay()
 
 @loadDates = ->
   dates = getDates().sort()
@@ -179,8 +181,10 @@ $(document).ready ->
 
 pieces = new Array()
 counter = 0;
-@autoPlay = () ->
 
+@autoPlay = () ->
+  
+  autoPlaying = true;
   events = getEvents()
   for event in events
     images = event["images"]
@@ -189,34 +193,69 @@ counter = 0;
         piec = new Array()
         imageID = image["id"]
         piec['id'] = imageID
+        piec['eventid'] = event['event']['id']
         piec['type'] = '2'
         pieces.push piec
     else
       piec = new Array()
       piec['id'] = event["event"]["id"] 
+      piec['eventid'] = event["event"]["id"]
       piec['type'] = '1'
       pieces.push piec
-
-  #alert("1 " + pieces[1]['type'])
   counter = 0;
   nextEvent()
 
+@stopAutoPlay = () ->
+  if autoPlaying is true
+    clearTimeout(proxyTimeout);
+
 @nextEvent = () ->
+
   if counter >= pieces.length
     return
 
-  
   if pieces[counter]['type'] is '1'
-    event = getEvent(pieces[counter]['id'])
-    title = event['title']
-    content = event['content']
+    id = pieces[counter]['eventid']
+    element = $("div[eventid='#{id}']")
+    position = element.offset().left - element.width()
+  else
+    id = pieces[counter]['id']
+    element = $("img[imageid='#{id}']")
+    position = element.offset().left - element.width()
+
+  $("html").animate({scrollLeft: position}, 800)
+
+  proxyTimeout = setTimeout("showModals()",1500)
+
+  
+@closeModals = () ->
+  hideModal("#modal")
+  hideModal("#modal-noimage")
+  proxyTimeout = setTimeout("nextEvent()",500)
+
+@showModals = () ->
+  if pieces[counter]['type'] is '1'
+    if language is 'pt'
+      event = getEvent(pieces[counter]['id'])
+      title = event['title']
+      content = event['content']
+    else
+      event = getEventTranslation(pieces[counter]['id'], language, "", "event")[0]
+      title = event['title']
+      content = event['content']
+
+
     console.log(event)
     $("#modal-noimage .mod-title").html(title)
     $("#modal-noimage .description").html(content)
     showModal("#modal-noimage")
   else
     image = getImage(pieces[counter]['id'])
-    description = image["caption"]
+    if language is 'pt'
+      description = image["caption"]
+    else
+      event = getEventTranslation(pieces[counter]['eventid'], language, image['path'], "image")[0]
+      description = event['caption']
     path = image["path"].replace "public/" , ""
     console.log(pieces[counter]['id'])
     $("#modal .description").html(description)
@@ -228,11 +267,6 @@ counter = 0;
       scale: 1.5
     $("#modal img.picture").image_zoomer options
     showModal("#modal")
-
+ 
   counter = counter + 1
-  setTimeout("closeModals()", 2000)
-
-@closeModals = () ->
-  hideModal("#modal")
-  hideModal("#modal-noimage")
-  setTimeout("nextEvent()",1000)
+  proxyTimeout = setTimeout("closeModals()", 5000)

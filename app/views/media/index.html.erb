@@ -4,11 +4,12 @@
   <audio controls="controls" loop="loop" autoplay>
     <source src="sound/soundtrack.mp3" type="audio/mp3" />
   </audio>
+  <div id="autoPlay"><img src="assets/autoPlay.png"><div></div>
 </div>
-<div class="timeline">
+<div class="timeline" id="timeline">
 
 </div>
-<button id="autoPlay">AutoPlay</button>
+
 <% if @language.size != 1 %>
 <div class = "lingua">
   <div id="actualLanguage" style="display:none"><%= session[:language] %></div>
