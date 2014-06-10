@@ -1,7 +1,11 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
+language = 'pt'
 $(document).ready ->
+
+  language = $("#actualLanguage").text()
   $.ajaxSetup async: false
   $(".timeline").width(0)
   loadDates()
@@ -26,17 +30,30 @@ $(document).ready ->
 
 @loadEvents = ->
   events = getEvents()
+  translations = getTranslation()
+
   for event in events
     date = event["event"]["date"]
     eventID = event["event"]["id"]
-    title = event["event"]["title"]
-    content = event["event"]["content"]
+    title = "";
+    content = "";
+    if language is 'pt'
+      title = event["event"]["title"]
+      content = event["event"]["content"]
+    else
+      translation = getEventTranslation(eventID, language, "", "event")[0]
+      title = translation['title']
+      content = translation['content']
     images = event["images"]
     if images.length > 0
       for image in images
         path = image["path"].replace "public/" , ""
         imageID = image["id"]
-        title = image["title"]
+        if language is 'pt'
+          title = image["title"]
+        else
+          translation = getEventTranslation(eventID, language, image["path"], "image")[0]
+          title = translation["title"]
         if(!title)
           title=""
         else
@@ -59,10 +76,18 @@ $(document).ready ->
 
 @eventClick = (elem) ->
   eventID = $(elem).attr("eventID")
-  event = getEvent(eventID)
-  title = event['title']
-  content = event['content']
-  console.log(event)
+  title = "";
+  content = "";
+  event = null
+  if language is 'pt'
+    event = getEvent(eventID)
+    title = event['title']
+    content = event['content']
+    console.log(event)
+  else
+    event = getEventTranslation(eventID, language, "", "event")[0]
+    title = event['title']
+    content = event['content']
   $("#modal-noimage .mod-title").html(title)
   $("#modal-noimage .description").html(content)
   showModal("#modal-noimage")
@@ -74,11 +99,17 @@ $(document).ready ->
 @getEvents = ->
   $.getJSON("/getEvents.json")["responseJSON"]
 
+@getTranslation = ->
+  $.getJSON("/getTranslations.json")["responseJSON"]
+
 @getImage = (id) ->
   $.getJSON("/getImage.json", id: id)["responseJSON"]
 
 @getEvent = (id) ->
   $.getJSON("/getEvent.json", id: id)["responseJSON"]
+
+@getEventTranslation = (id, lang, path, type) ->
+  $.getJSON("/getEventTranslation.json", id: id, language:lang, path: path, type: type)["responseJSON"]
 
 @addDate = (date) ->
   html  = "<div id='#{date}' class='year'>"
@@ -94,7 +125,6 @@ $(document).ready ->
   sel = "#img-" + imageID
   $(sel).load -> onImageLoad(this)
 
-
 @onImageLoad = (elem) ->
   imageWidth = $(elem).width()
   timelineWidthAdd(imageWidth  + 20)
@@ -108,9 +138,14 @@ $(document).ready ->
 
 @imageClick = (elem) ->
   imageID = $(elem).attr("imageID")
+  eventID = $(elem).attr("eventID")
   image = getImage(imageID)
-  description = image["caption"]
   path = image["path"].replace "public/" , ""
+  if language is 'pt'
+    description = image["caption"]
+  else
+    translation = getEventTranslation(eventID, language, image["path"], "image")[0]
+    description = translation['caption']
   console.log(image)
   $("#modal .description").html(description)
   $("#modal img.picture").attr("src", path)
@@ -138,6 +173,7 @@ $(document).ready ->
   )
   $.ajaxSetup async: true
   $.parseJSON(data["responseText"])["result"] is "ok"
+  language = 'en';
   location.reload(true)
 
 

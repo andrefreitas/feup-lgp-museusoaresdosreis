@@ -29,8 +29,10 @@ Museusoaresreis::Application.routes.draw do
   #Media
   get "/getDates" => "media#getDates"
   get "/getEvents" => "media#getEvents"
+  get "/getTranslations" => "media#getTranslations"
   get "/getImage" => "media#getImage"
   get "/getEvent" => "media#getEvent"
   get "/puzzle" => "media#puzzle"
+  get "/getEventTranslation" => "media#getTranslationEvent"
 
 end
